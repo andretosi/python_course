@@ -1,387 +1,491 @@
+# Corso Python – Lezione 2: Ambiente, Data Types, If/Else, Liste e Cicli For
 
-# Lezione 2
+## Indice
+- [Corso Python – Lezione 2: Ambiente, Data Types, If/Else, Liste e Cicli For](#corso-python--lezione-2-ambiente-data-types-ifelse-liste-e-cicli-for)
+  - [Indice](#indice)
+  - [Prima di iniziare](#prima-di-iniziare)
+    - [Regole sui percorsi](#regole-sui-percorsi)
+  - [Recap Lezione 1](#recap-lezione-1)
+    - [Cosa abbiamo fatto](#cosa-abbiamo-fatto)
+    - [Quando usare altri linguaggi](#quando-usare-altri-linguaggi)
+  - [Ambienti Virtuali (venv)](#ambienti-virtuali-venv)
+    - [Cos’è un ambiente virtuale](#cosè-un-ambiente-virtuale)
+    - [Comandi principali](#comandi-principali)
+  - [Python Basics](#python-basics)
+    - [Commenti](#commenti)
+    - [Variabili](#variabili)
+    - [Leggere gli errori](#leggere-gli-errori)
+  - [Data Types](#data-types)
+    - [Boolean](#boolean)
+    - [Stringhe](#stringhe)
+    - [Numeri](#numeri)
+      - [Interi](#interi)
+      - [Float](#float)
+      - [Operazioni miste](#operazioni-miste)
+    - [Liste](#liste)
+    - [Tuple](#tuple)
+    - [Dizionari](#dizionari)
+  - [If / Else / Elif](#if--else--elif)
+  - [Cicli For](#cicli-for)
+  - [PEP 8 e buone pratiche](#pep-8-e-buone-pratiche)
+  - [Esercizi Pratici](#esercizi-pratici)
+    - [Problema 1 – Valutazione Rischio Paziente](#problema-1--valutazione-rischio-paziente)
+    - [Problema 2 – Frequenze Cardiache](#problema-2--frequenze-cardiache)
+  - [Culture Pill / Esterni](#culture-pill--esterni)
 
-## Prima di iniziare...
-- Localizzare la cartella
-- Cancellare i file nella cartella
-- aprire visual studio code
-- ri-creare i file con i nomi giusti SENZA SPAZI!!!
-- print(f"...") NON printf()
-- ri-testare python
+---
 
-## Comandi (spostare nella lezione 1)
+## Prima di iniziare
 
-### Percorsi
-Nei nomi della cartelle e dei file è caldamente consigliato usare solo lettere, numeri e trattini alti e bassi. Altri caratteri sono spesso supportati ma richiederebbe avvolgere tra virgolette i nomi ogni volta e ci impazzite dietro.
+- Localizzare la cartella di lavoro.  
+- Cancellare i file inutili.  
+- Aprire **Visual Studio Code**.  
+- Ricreare i file con **nomi senza spazi**.  
+- Usare `print(f"...")` e non `printf()`.  
+- Testare che Python funzioni correttamente.
 
-I seguenti indirizzi possono essere usati come argomento di altri comandi come `cd`, `touch`, `mkdir` e molti altri che abbiamo visto o vedremo.
+### Regole sui percorsi
+Usare solo lettere, numeri e trattini bassi o alti nei nomi di file e cartelle.  
+Evitare spazi o simboli speciali.
 
-Immaginiamo la seguente struttura:
-
-undefined
-Vediamo quali sono i percorsi per arrivare alle diverse cartelle, supponendo di trovarci dentro la cartella *this_folder*.
-
-This folder:
+Esempi di percorsi:
 ```bash
-.
-```
-Next folder:
-```bash
-./next_folder_name
-```
-Parent folder:
-```bash
-..
-```
-Parent of parent folder:
-```bash
-../..
-```
-Sibling folder:
-```bash
-../sibling_folder
-```
-File di testo nella cartella *sibling*:
-```bash
-../sibling_folder/text_file.txt
-```
-è importante sottolineare come l'estensione sia NECESSARIA quando si fa fa riferimento ad un file.
-
-Cartella home:
-```bash
-~
-```
-che è un modo più rapido per scrivere:
-```bash
-/home/user_name
-```
-
-Root directory (è la radice del file-system):
-```bash
-/
+.                # cartella corrente
+..               # cartella superiore
+../sibling       # cartella "fratello"
+~/Desktop        # cartella Desktop
 ```
 
-### Comandi
-- - -
-Manage open source pakages:
-
-| **apt-get Command**              | **Description**                                                                                    | **Homebrew Equivalent**         |
-| -------------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- |
-| `apt-get update`                 | Fetch and update the package lists from repositories                                               | `brew update`                   |
-| `apt-get install <package-name>` | Install a specific package                                                                         | `brew install <package-name>`   |
-| `apt-get remove <package-name>`  | Remove a specific package without removing its configuration files                                 | `brew uninstall <package-name>` |
-| `apt-get purge <package-name>`   | Remove a specific package and its configuration files                                              | `brew uninstall <package-name>` |
-| `apt-get upgrade`                | Upgrade all packages to the newest available version                                               | `brew upgrade`                  |
-| `apt-get autoremove`             | Remove packages that were automatically installed to satisfy dependencies and are no longer needed | `brew cleanup`                  |
-| `apt-get clean`                  | Clear downloaded archive files                                                                     | `brew cleanup`                  |
-| `dpkg -l`                        | List all installed packages                                                                        | `brew list`                     |
-| `apt-cache search <term>`        | Search for a package by its name or description                                                    | `brew search <term>`            |
-
-- - -
-Aprire la cartella `path_to_folder/folder_name` nell'app predefinita:
-- Windows WSL:
-```bash
-wslview path_to_folder/folder_name
-```
-o alternativamente:
-```bash
-explorer.exe path_to_folder/folder_name
-```
-
-- Mac OS:
-```bash
-open path_to_folder/folder_name
-```
-- - -
-Aprire visual studio code nella cartella corrente:
+Aprire una cartella in VS Code:
 ```bash
 code .
 ```
-*Nota:* per mac bisogna averlo aggiunto al path per farlo funzionare.
-- - -
-Navigare in una cartella
+
+Creare una cartella o un file:
 ```bash
-cd path_to_folder
+mkdir nome_cartella
+touch file.py
 ```
-- - -
-Creare una cartella
-```bash
-mkdir path_to_folder/name_of_folder
-```
-- - -
-Sapere il percorso completo alla cartella corrente:
-```bash
-pwd
-```
-- - -
-Creare un file
-```bash
-touch path_to_file/file_name.extension
-```
-- - -
 
+---
 
-## Recap Lezione 1 (10 min)
+## Recap Lezione 1
 
-- Cosa abbiamo fatto?
-	- Vogliamo dare i perchè delle cose, non calarle dall'alto.
-- perchè python?
-	- Facile da usare, veloce da prototipare, diffusissimo, usato molto nel ML.
-- perchè linux?
-	- Perchè è portable
-	- perchè consuma poche risorse e poca batteria (niente interfacce!)
-	- perchè è lo standard per tutti i dispositivi avanzati dove l'interfaccia utente non è quella di Windows o Mac OS. (Esistono anche altri standard industriali, ma non permettono applicazioni complesse e non sono così veratili)
-- perchè visual studio?
-	- è un IDE molto usato, quindi con molte risorse online
-- Perchè non google colab o un compilatore online?
-	- Perchè a meno che di lavorare solo nella ricerca, quando si parla di implementazione non sarà possibile usare solo google colab o un compilatore online. Lavorando sin da subito con la shell (terminale) ci si abitua a quello che poi potrebbe essere lo standard sul posto di lavoro.
-- Quando usare python e quando:
-	- C/C++
-	- matlab
-	- javascript
-	- java
-	- R
-	- Rust?
+### Cosa abbiamo fatto
+- Perché usare Python:
+  - Facile da imparare e molto diffuso.  
+  - Ottimo per prototipare e per il Machine Learning.  
+- Perché usare Linux:
+  - Più leggero, efficiente e standard per i sistemi embedded, open-source.  
+- Perché Visual Studio Code:
+  - IDE moderno, ricco di estensioni e ampiamente supportato. Più linguaggi da poter usare contemporaneamente. 
 
+- Perché non usare solo Google Colab/compilatori online:
+  - Sono ottimi per la ricerca e prototipi, ma nel lavoro reale spesso si lavora su macchine/server senza interfaccia grafica.  
+  - Abituarsi al terminale e all'ambiente locale aiuta a essere produttivi in contesti professionali.
 
-## Venv (15 min)
-- A cosa servono gli ambienti virtuali?
-- python virtual environment
-- python3 -m venv myenv
-- . myenv/bin/activate
-- deactivate
+### Quando usare altri linguaggi
+- C/C++ → alte prestazioni, sistemi embedded.  
+- MATLAB → analisi numerica o scientifica.  
+- JavaScript → sviluppo web.  
+- Java / Rust → software strutturato o ad alte prestazioni.  
+- R → analisi statistica e data science.
 
-- Cos'è un ambiente virtuale e a cosa serve?
-Un ambiente virtuale è un modo per isolare i pacchetti di python in modo da non avere conflitti con gli stessi pacchetti ma di altre versioni usati in altri progetti. 
-- Cos'è venv?
-Il modulo `venv` di Python permette di creare ambienti virtuali leggeri, ciascuno con il proprio set di pacchetti. Questi ambienti si basano su un'installazione Python esistente e possono essere isolati dai pacchetti dell'ambiente di sistema. Strumenti come `pip` installano automaticamente i pacchetti all'interno dell'ambiente virtuale, una volta attivato, senza bisogno di specificare altro.
+---
 
-In punti un ambiente virtuale:
-- Include un interprete Python specifico e le librerie/binari necessari per un progetto.
-- È memorizzato in una directory, solitamente chiamata `.venv` o `venv`.
-- Non viene incluso nei sistemi di controllo versione come Git.
-- È usa e getta e facile da ricreare.
-- Non è progettato per essere spostato o copiato; dovrebbe essere ricreato nella nuova posizione ogni volta che si cambia la cartella del progetto.
+## Ambienti Virtuali (venv)
 
-Questa configurazione assicura che i progetti abbiano le proprie dipendenze e configurazioni, indipendenti da altri progetti e dall'installazione di sistema di Python. Serve per evitare contesti dove, per esempio, in un progetto uso una versione nuova di un pacchetto che veniva usato anche in un progetto vecchio. In tal caso sovrascrivere il vecchio pacchetto con quello nuovo potrebbe "rompere" il vecchio progetto. Grazie ad un ambiente virtuale, i pacchetti vengono usati con le corrette versioni in entrambi i progetti.
+### Cos’è un ambiente virtuale
+Un **ambiente virtuale** permette di isolare le dipendenze di un progetto Python, evitando conflitti tra pacchetti e versioni.
 
-### Come si usa il comando venv
-Il comando parte pre-installato con python, non bisogna installare nient'altro. 
-
-Il processo di utilizzo si divide in 3 step:
-
-1. Creare l'ambiente virtuale:
+### Comandi principali
+1. Creare un ambiente:
    ```bash
    python3 -m venv myenv
    ```
-2. Attivare l'ambiente virtuale:
+2. Attivarlo:
    ```bash
    . myenv/bin/activate
    ```
-3. Disattivare l'ambiente virtuale:
+3. Disattivarlo:
    ```bash
    deactivate
    ```
 
-## Python basics (60 min)
+---
 
-Come python usa l'indentazion al posto delle parentesi e dei punti e virgola:
-### Comments
+## Python Basics
 
+### Commenti
 ```python
-# This is a normal comment
+# Questo è un commento singolo
 
-# It's a good practice to leave a blank space between the hashtag
-# and the rest of the comment.
-
-""" This is a multiline comment.
-This is made for long paragraphs of text,
-otherwise it will be messy to have it only on one line!
-This kind of formatting that you see here is the standard
-Usually on the first line there is the "title" of the comment
-and below the explanation.
-"""
+""" Questo è un commento
+su più righe, utile per spiegazioni
+o documentazione interna. """
 ```
 
-Ma cosa dovrei scrivere nei commenti?
+Scrivere sempre commenti chiari per spiegare **perché** si fa qualcosa, non solo **cosa** si fa.
 
-è importantissimo commentare tutte le funzioni o i passaggi delicati, che possono non essere chiari a prima vista a noi stessi o a qualcun'altro a prima lettura.
+---
 
-### Variables
-Can contain:
-- letters
-- numbers
-- underscore
-They can NOT start with a number.
+### Variabili
 
-Best practice
-I nomi delle variabili devono essere lowercase
-... trattini davanti (trattini in mezzo?)
+Le variabili possono contenere:
+- lettere  
+- numeri  
+- trattini bassi `_`  
+
+Non possono iniziare con un numero.
+
+Esempio:
+```python
+nome = "Mario"
+eta = 25
+```
+
+Buona pratica:
+- usare nomi in **minuscolo**
+- separare parole con `_`  
+
+Evita nomi poco descrittivi come `a`, `x1` quando possibile. Preferisci `eta_paziente`, `frequenze_bpm`.
+
+Le variabili non hanno un tipo dichiarato staticamente: il tipo dipende dal valore assegnato.
+
+---
 
 ### Leggere gli errori
-...
-Name errors
 
+Quando Python stampa un errore (traceback), leggi dall’ultima riga verso l’alto: lì trovi il tipo e il messaggio.
+
+Esempio di NameError:
+```python
+print(nome)
+# NameError: name 'nome' is not defined
+```
+Significa che la variabile `nome` non è stata definita prima dell’uso. Definisci o correggi il nome della variabile.
+
+Errori comuni:
+- NameError → variabile non definita o scritta male.  
+- TypeError → operazione non valida per quel tipo (es. sommare stringa e numero).  
+- ValueError → conversione fallita (es. `int("ciao")`).
+
+---
 
 ## Data Types
 
-
-
 ### Boolean
-
-### Strings
-Si possono  usare
-""
-o
-''
-
-
-Metodi (cos'è un metodo)
-.title()
-.upper()
-.lower()
-.rstrip() Toglie gli spazi a destra che non si vedono di solito
-.lstrip()
-.strip()
-come salvare una stringa dopo averla modificata
-
-errori comuni
 ```python
-message = 'Ti piace l'odore dei funghi?'
+vero = True
+falso = False
 ```
 
-
-
-#### Variuabili nelle stringhe
-
-Da python 3.6
+### Stringhe
+Le stringhe si scrivono tra virgolette singole o doppie:
 ```python
-text = f"{var_1}{var_2}"
+messaggio = "Ciao mondo!"
 ```
 
-#### Simboli speciali
-\t
-\n
-escape chars
-
-
-### Numbers
-
-#### Integers
+Metodi utili:
 ```python
-+ - * / **
-```
-provarli nella sessione dell'interprete
-
-
-#### Floats
-```python
-+ - * / ** 
-```
-#### Mischiare Interi e Floats
-
-....
-
-```python
-//
+messaggio.upper()
+messaggio.lower()
+messaggio.strip()
+messaggio.title()   # Prima lettera maiuscola per ogni parola
+messaggio.rstrip()  # Rimuove spazi a destra
+messaggio.lstrip()  # Rimuove spazi a sinistra
 ```
 
+Formattazione:
+```python
+nome = "Anna"
+eta = 22
+testo = f"{nome} ha {eta} anni"
+```
 
-#### multiple assignament
+Caratteri speciali:
+- `\n` → nuova riga  
+- `\t` → tabulazione  
 
-#### Conventions
+Attenzione alle virgolette dentro le stringhe:
+```python
+# Sbagliato → interrompe la stringa
+messaggio = 'Ti piace l'odore dei funghi?'
+
+# Giusto → usa virgolette diverse o l'escape
+messaggio = "Ti piace l'odore dei funghi?"
+messaggio = 'Ti piace l\'odore dei funghi?'
+```
+
+---
+
+### Numeri
+
+#### Interi
+```python
+x = 5
+y = 2
+somma = x + y
+diff = x - y
+prodotto = x * y
+quoziente_float = x / y   # 2.5
+quoziente_intero = x // y # 2 divisione intera
+resto = x % y             # 1 modulo
+potenza = x ** y          # 25
+```
+
+#### Float
+```python
+z = 5.3
+```
+
+#### Operazioni miste
+```python
+risultato = 5 / 2     # float
+intero = 5 // 2        # divisione intera
+resto = 5 % 2          # 1
+potenza = 2 ** 10      # 1024
+```
+
 Costanti:
 ```python
 MAX_SPEED = 300
 ```
 
-Trattini bassi
-
+Numeri leggibili:
 ```python
-speed_of_lights = 299_792_458 # m/s
+velocita_luce = 299_792_458
 ```
 
-### The zen of python
+Assegnazioni multiple e scambio rapido di variabili:
 ```python
-import this
+a, b = 1, 2
+b, a = a, b  # scambia i valori
 ```
+
+---
 
 ### Liste
+Le **liste** sono collezioni ordinate e modificabili.
 
-indice inizia a 0
+```python
+frutti = ["mela", "banana", "ciliegia"]
+print(frutti[0])  # mela
+frutti.append("pera")
+```
 
+L’indice parte da 0. Le liste supportano slicing e molte operazioni:
+```python
+frutti[1]        # "banana"
+frutti[-1]       # ultimo elemento
+frutti[0:2]      # ["mela", "banana"]
+len(frutti)      # lunghezza
+"mela" in frutti  # True
+```
+
+---
 
 ### Tuple
-
-List of items that can not change. 
-```python
-dimensions = (100, 200)
-```
-
-definite dalla virgola!
-
-posso assegnare un nuovo valore a dimensions ma non posso modificare la toupla che gia esiste.
-
-
-### Sets
-A Set in [Python programming](https://www.geeksforgeeks.org/getting-started-with-python-programming/) is an **unordered** collection data type that is **iterable** and has **no duplicate elements**. While sets are **mutable**, meaning you can add or remove elements after their creation, the *individual elements within the set must be immutable and cannot be changed directly*.
-
-> Set are represented by { } (values enclosed in curly braces)
-
-The major advantage of using a set, as opposed to a [list](https://www.geeksforgeeks.org/python-lists/), is that it has a highly optimized method for checking whether a specific element is contained in the set. This is based on a data structure known as a [hash table](https://www.geeksforgeeks.org/hashing-set-1-introduction/). Since sets are unordered, we cannot access items using indexes as we do in lists.
+Le **tuple** sono simili alle liste ma **immutabili**.
 
 ```python
-var = {"Geeks", "for", "Geeks"}
-type(var)
+dimensioni = (100, 200)
 ```
 
-#### Frozen Sets
-...
+Le tuple sono definite dalla virgola e non possono essere modificate dopo la creazione:
+```python
+dimensioni = (100, 200)
+# dimensioni[0] = 50  # TypeError
+```
+```
 
+---
 
-FINIRE DI APPROFONDIRE DA SOLI
+### Set
+I **set** sono collezioni **non ordinate** e **senza duplicati**.
 
-### PEP 8
-PEP: Python Enhancement Proposal
-PEP 8: parla di come dare stile al codice
-- Indentazione:
-	- 4 spazi per livello (gli editor ma non tutti convertono il tab in 4 spazi)
-	- se no ci sono problemi!!+
-- 79 char per linea
-- i commenti massimo di 72 char per linea, per documentazione automatica
-- Linee vuote per dividere il file ma non troppo, man mano vi dirò le linee guida migliori
-- aprire PEP 8 presso https://python.org/dev/peps/pep-0008
+```python
+insieme = {"rosso", "verde", "blu"}
+insieme.add("giallo")
+"rosso" in insieme   # True
+```
+
+Un set non mantiene l’ordine e non consente elementi mutabili al suo interno. Variante immutabile:
+```python
+fisso = frozenset({"a", "b"})
+```
+
+---
 
 ### Dizionari
+Associazione chiave → valore.
 
+```python
+paziente = {
+    "nome": "Luca",
+    "eta": 35,
+    "fumatore": False
+}
+print(paziente["nome"])
+```
 
+Metodi utili e accesso sicuro:
+```python
+paziente.get("peso", None)   # Restituisce None se assente
+paziente.update({"eta": 36})
+list(paziente.keys())   # chiavi
+list(paziente.values()) # valori
+list(paziente.items())  # coppie (chiave, valore)
+```
 
+---
 
-- Comments
-- Best practices in comments
-- Variables
-	- names
-	- how do they differ from other programming languages
-	- data types
-		- strings
-			- strings functions
-			- variables in strings
-			- special chars in strings
-			- common errors? (ex related to the " ... ' ..." or others)
-		- Numbers
-			- Integers
-			- Floats
-			- Combining both and what happens
-			- underscore in numbers (Cool!)
-			- constants (convention)
-		- Lists
-			
-		- Tuples
-			- 
-		- Dictionaries
-			- 
-		- Comments
-			- 
-		- The zen of python (principles)
-			- `import this`
-		- Loops
+## If / Else / Elif
+
+Istruzioni condizionali:
+```python
+eta = 70
+if eta > 65:
+    print("Senior")
+elif eta > 18:
+    print("Adulto")
+else:
+    print("Minorenne")
+```
+
+---
+
+## Cicli For
+```python
+for numero in [1, 2, 3]:
+    print(numero)
+```
+
+Altri esempi comuni:
+```python
+# range(start, stop, step) genera sequenze di interi
+for i in range(5):         # 0,1,2,3,4
+  print(i)
+
+for i in range(1, 6):      # 1..5
+  print(i)
+
+for i in range(0, 10, 2):  # 0,2,4,6,8
+  print(i)
+
+# enumerate per ottenere indice e valore
+frutti = ["mela", "banana", "pera"]
+for i, frutto in enumerate(frutti, start=1):
+  print(f"{i}: {frutto}")
+```
+
+---
+
+## PEP 8 e buone pratiche
+
+- Indentazione: **4 spazi** per livello.  
+- Massimo **79 caratteri** per riga.  
+- Commenti max **72 caratteri**.  
+- Lasciare righe vuote per separare le sezioni.  
+
+Per consultare lo standard:
+👉 [PEP 8 – Style Guide for Python Code](https://python.org/dev/peps/pep-0008)
+
+---
+
+## Esercizi Pratici
+
+### Problema 1 – Valutazione Rischio Paziente
+
+Scrivi un programma in Python che simuli una semplice **valutazione di rischio** per un paziente.
+
+```python
+# Input dati utente
+nome = input("Nome del paziente: ")
+eta = int(input("Età del paziente: "))
+pressione = float(input("Pressione sistolica: "))
+fumatore = input("Il paziente è fumatore? (s/n): ")
+
+# Logica condizionale
+if eta > 65 and pressione < 120 and fumatore == "s":
+    print("Attenzione: rischio ipertensione.")
+elif pressione > 120 and eta > 65:
+    print("Grave rischio ipertensione!")
+elif pressione > 120:
+    print("Rischio ipertensione.")
+else:
+    print("Livello di rischio normale.")
+
+# Riepilogo finale
+print(f"\nRiepilogo:")
+print(f"Nome: {nome}")
+print(f"Età: {eta}")
+print(f"Pressione: {pressione}")
+print(f"Fumatore: {fumatore}")
+```
+
+---
+
+### Problema 2 – Frequenze Cardiache
+
+```python
+# Frequenze cardiache acquisite ogni minuto
+frequenze = [72, 78, 90, 65, 100, 88, 76, 80, 110, 95]
+
+normali = 0
+anomale = 0
+
+for i, bpm in enumerate(frequenze):
+    print(f"Frequenza minuto {i+1}: {bpm} bpm")
+    if bpm < 60:
+        print("→ Frequenza troppo bassa")
+        anomale += 1
+    elif bpm > 100:
+        print("→ Frequenza eccessiva")
+        anomale += 1
+    else:
+        print("→ Frequenza nella norma")
+        normali += 1
+
+media = sum(frequenze) / len(frequenze)
+print(f"\nMedia: {media:.2f} bpm")
+print(f"Valori normali: {normali}, anomali: {anomale}")
+```
+
+Variante: leggi i valori dall’utente, converti in lista e ripeti il calcolo.
+Esempio di input: 72, 78, 90, 65, 100, 88, 76, 80, 110, 95
+
+```python
+valori_input = input("Inserisci frequenze separate da virgola: ")
+# Pulisci spazi e converti in interi
+frequenze = [int(x.strip()) for x in valori_input.split(',') if x.strip()]
+
+normali = 0
+anomale = 0
+
+for i, bpm in enumerate(frequenze, start=1):
+  print(f"Frequenza minuto {i}: {bpm} bpm")
+  if bpm < 60:
+    print("→ Frequenza troppo bassa")
+    anomale += 1
+  elif bpm > 100:
+    print("→ Frequenza eccessiva")
+    anomale += 1
+  else:
+    print("→ Frequenza nella norma")
+    normali += 1
+
+media = sum(frequenze) / len(frequenze) if frequenze else 0
+print(f"\nMedia: {media:.2f} bpm")
+print(f"Valori normali: {normali}, anomali: {anomale}")
+```
+
+---
+
+## Culture Pill / Esterni
+Piccoli approfondimenti:
+- Esplora la **Zen of Python** con:
+  ```python
+  import this
+  ```
+- Comprendere la filosofia “chiara, leggibile, esplicita”.

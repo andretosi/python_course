@@ -15,6 +15,7 @@
     - [Commenti](#commenti)
     - [Variabili](#variabili)
     - [Leggere gli errori](#leggere-gli-errori)
+    - [Input da tastiera (input())](#input-da-tastiera-input)
   - [Data Types](#data-types)
     - [Boolean](#boolean)
     - [Stringhe](#stringhe)
@@ -23,8 +24,6 @@
       - [Float](#float)
       - [Operazioni miste](#operazioni-miste)
     - [Liste](#liste)
-    - [Tuple](#tuple)
-    - [Dizionari](#dizionari)
   - [If / Else / Elif](#if--else--elif)
   - [Cicli For](#cicli-for)
   - [PEP 8 e buone pratiche](#pep-8-e-buone-pratiche)
@@ -32,6 +31,9 @@
     - [Problema 1 – Valutazione Rischio Paziente](#problema-1--valutazione-rischio-paziente)
     - [Problema 2 – Frequenze Cardiache](#problema-2--frequenze-cardiache)
   - [Culture Pill / Esterni](#culture-pill--esterni)
+  - [Soluzioni](#soluzioni)
+    - [Soluzione Problema 1](#soluzione-problema-1)
+    - [Soluzione Problema 2](#soluzione-problema-2)
 
 ---
 
@@ -172,6 +174,47 @@ Errori comuni:
 
 ---
 
+### Input da tastiera (input())
+
+La funzione `input()` legge una riga di testo dalla tastiera e restituisce sempre una stringa (`str`). Puoi passare una stringa come prompt.
+
+Esempi base:
+```python
+nome = input("Come ti chiami? ")           # restituisce una stringa
+eta = int(input("Quanti anni hai? "))      # converte la stringa in int
+peso = float(input("Peso (kg): "))         # converte la stringa in float
+```
+
+Note importanti:
+- `input()` → sempre stringa: usa `int(...)` o `float(...)` per numeri.  
+- Se la conversione fallisce (es. testo non numerico), Python solleva un `ValueError` (vedi "Leggere gli errori").
+
+Perché si può usare senza importare nulla?  
+In Python, `input()` è una funzione integrata, parte del modulo speciale `builtins` che è caricato automaticamente dall'interprete. Queste funzioni sono disponibili nello spazio dei nomi globale senza bisogno di `import`.
+
+Confronto rapido con Java:
+```java
+// Java: serve importare e creare un lettore
+import java.util.Scanner;
+
+Scanner sc = new Scanner(System.in);
+System.out.print("Età: ");
+int eta = sc.nextInt();
+```
+
+```python
+# Python: funzione built-in disponibile subito
+eta = int(input("Età: "))
+```
+
+Se vuoi esplorare i built-in disponibili:
+```python
+import builtins
+print(dir(builtins))
+```
+
+---
+
 ## Data Types
 
 ### Boolean
@@ -283,62 +326,6 @@ len(frutti)      # lunghezza
 "mela" in frutti  # True
 ```
 
----
-
-### Tuple
-Le **tuple** sono simili alle liste ma **immutabili**.
-
-```python
-dimensioni = (100, 200)
-```
-
-Le tuple sono definite dalla virgola e non possono essere modificate dopo la creazione:
-```python
-dimensioni = (100, 200)
-# dimensioni[0] = 50  # TypeError
-```
-```
-
----
-
-### Set
-I **set** sono collezioni **non ordinate** e **senza duplicati**.
-
-```python
-insieme = {"rosso", "verde", "blu"}
-insieme.add("giallo")
-"rosso" in insieme   # True
-```
-
-Un set non mantiene l’ordine e non consente elementi mutabili al suo interno. Variante immutabile:
-```python
-fisso = frozenset({"a", "b"})
-```
-
----
-
-### Dizionari
-Associazione chiave → valore.
-
-```python
-paziente = {
-    "nome": "Luca",
-    "eta": 35,
-    "fumatore": False
-}
-print(paziente["nome"])
-```
-
-Metodi utili e accesso sicuro:
-```python
-paziente.get("peso", None)   # Restituisce None se assente
-paziente.update({"eta": 36})
-list(paziente.keys())   # chiavi
-list(paziente.values()) # valori
-list(paziente.items())  # coppie (chiave, valore)
-```
-
----
 
 ## If / Else / Elif
 
@@ -399,25 +386,206 @@ Per consultare lo standard:
 
 Scrivi un programma in Python che simuli una semplice **valutazione di rischio** per un paziente.
 
+Nota sulle risorse disponibili in questa lezione:
+- Usa solo variabili, numeri, boolean, stringhe, `if/elif/else`, liste e `for` (se serve).
+- Non usare `input()` (lo vedremo più avanti). Imposta i valori direttamente in variabili.
+
+Opzionale
+- Se preferisci leggere i dati da tastiera, puoi usare `input()` (vedi sezione: "Input da tastiera (input())").
+
+Consegna
+- Dati i valori del paziente definiti come variabili:
+  - `nome` (stringa), `eta` (intero), `pressione` (float, sistolica), `fumatore` (boolean: `True`/`False`).
+- Stampa un messaggio di rischio in base a queste regole (semplificate):
+  - Se `pressione >= 140` → "Grave rischio ipertensione!"
+  - Altrimenti se `pressione >= 120` → "Rischio ipertensione."
+  - Altrimenti se `eta >= 65` e `fumatore` è `True` → "Attenzione: fattori di rischio presenti."
+  - Altrimenti → "Livello di rischio normale."
+- Stampa un breve riepilogo finale con i valori del paziente in 4 righe (nome, età, pressione, fumatore).
+
+Cosa puoi usare
+- Operatori di confronto (`>`, `>=`, `<`, `<=`, `==`), operatori logici (`and`, `or`).
+- `print()` e f-string per formattare l'output.
+
+Scheletro di partenza
 ```python
-# Input dati utente
+# Dati del paziente (modifica i valori per provare casi diversi)
+nome = "Anna"
+eta = 68
+pressione = 118.0
+fumatore = True  # usa True/False
+
+# TODO: scrivi qui la logica condizionale descritta in consegna
+# Suggerimento: usa if / elif / else in questo ordine di priorità
+
+# TODO: stampa il riepilogo in 4 righe
+```
+
+Variante con input() (opzionale)
+```python
 nome = input("Nome del paziente: ")
 eta = int(input("Età del paziente: "))
 pressione = float(input("Pressione sistolica: "))
-fumatore = input("Il paziente è fumatore? (s/n): ")
+fumatore = input("Il paziente è fumatore? (s/n): ").strip().lower() == "s"
+```
 
-# Logica condizionale
-if eta > 65 and pressione < 120 and fumatore == "s":
-    print("Attenzione: rischio ipertensione.")
-elif pressione > 120 and eta > 65:
-    print("Grave rischio ipertensione!")
-elif pressione > 120:
-    print("Rischio ipertensione.")
+Esempio di output atteso (per valori: eta=70, pressione=145.0, fumatore=True)
+```
+Grave rischio ipertensione!
+
+Riepilogo:
+Nome: Anna
+Età: 70
+Pressione: 145.0
+Fumatore: True
+```
+
+---
+
+### Problema 2 – Frequenze Cardiache
+
+Calcola statistiche semplici sulle frequenze cardiache misurate ogni minuto.
+
+Nota sulle risorse disponibili in questa lezione:
+- Usa solo liste, cicli `for`, `if/elif/else`, `enumerate` (già visto), `len()`.
+- Per esercizio, calcola la somma manualmente con un accumulatore; in soluzione è lecito usare anche `sum()`.
+- Puoi provare anche una variante con `input()`; evita, per ora, le liste comprensione (versione compatta come extra).
+
+Consegna
+- Dato l'elenco `frequenze` qui sotto, per ciascun valore:
+  - Stampa "Frequenza minuto X: Y bpm" (usa `enumerate` con `start=1`).
+  - Se `bpm < 60` stampa "→ Frequenza troppo bassa" e incrementa `anomale`.
+  - Se `bpm > 100` stampa "→ Frequenza eccessiva" e incrementa `anomale`.
+  - Altrimenti stampa "→ Frequenza nella norma" e incrementa `normali`.
+- Calcola la media manualmente: usa una variabile `somma = 0` e aggiungi `bpm` ad ogni iterazione, poi `media = somma / len(frequenze)` (gestisci anche il caso lista vuota: media 0).
+- Alla fine stampa la media con 2 decimali e il conteggio di valori normali/anomali.
+
+Scheletro di partenza
+```python
+# Frequenze cardiache acquisite ogni minuto
+frequenze = [72, 78, 90, 65, 100, 88, 76, 80, 110, 95]
+
+normali = 0
+anomale = 0
+somma = 0
+
+for i, bpm in enumerate(frequenze, start=1):
+    # TODO: stampa frequenza del minuto i
+    # TODO: aggiorna normali/anomale in base alle regole
+    # TODO: aggiorna la somma
+    pass
+
+media = somma / len(frequenze) if frequenze else 0
+# In soluzione/alternativa: puoi usare anche sum(frequenze) al posto dell'accumulatore
+# media = sum(frequenze) / len(frequenze) if frequenze else 0
+print(f"\nMedia: {media:.2f} bpm")
+print(f"Valori normali: {normali}, anomali: {anomale}")
+```
+
+Esempio di output finale (ultime 2 righe)
+```
+Media: 85.40 bpm
+Valori normali: 8, anomali: 2
+```
+
+Variante con input() (senza liste comprensione)
+```python
+valori_input = input("Inserisci frequenze separate da virgola: ")
+
+# Costruisci la lista di interi senza liste comprensione
+frequenze = []
+for tok in valori_input.split(','):
+  t = tok.strip()
+  if t:  # ignora vuoti
+    frequenze.append(int(t))
+
+normali = 0
+anomale = 0
+somma = 0
+
+for i, bpm in enumerate(frequenze, start=1):
+  print(f"Frequenza minuto {i}: {bpm} bpm")
+  if bpm < 60:
+    print("→ Frequenza troppo bassa")
+    anomale += 1
+  elif bpm > 100:
+    print("→ Frequenza eccessiva")
+    anomale += 1
+  else:
+    print("→ Frequenza nella norma")
+    normali += 1
+  somma += bpm
+
+media = somma / len(frequenze) if frequenze else 0
+print(f"\nMedia: {media:.2f} bpm")
+print(f"Valori normali: {normali}, anomali: {anomale}")
+```
+
+Extra (facoltativo)
+- Versione compatta con liste comprensione e `sum()` (verrà approfondita nelle prossime lezioni):
+```python
+frequenze = [int(x.strip()) for x in input("Inserisci frequenze separate da virgola: ").split(',') if x.strip()]
+media = sum(frequenze) / len(frequenze) if frequenze else 0
+```
+
+---
+
+## Culture Pill / Esterni
+Piccoli approfondimenti:
+- Esplora la **Zen of Python** con:
+  ```python
+  import this
+  ```
+- Comprendere la filosofia “chiara, leggibile, esplicita”.
+
+---
+
+## Soluzioni
+
+Le soluzioni sono presentate separatamente dalle consegne. Dove indicato, includiamo varianti opzionali che usano `input()` o funzioni come `sum()`.
+
+### Soluzione Problema 1
+
+Versione con variabili impostate nel codice
+```python
+nome = "Anna"
+eta = 68
+pressione = 118.0
+fumatore = True
+
+if pressione >= 140:
+  print("Grave rischio ipertensione!")
+elif pressione >= 120:
+  print("Rischio ipertensione.")
+elif eta >= 65 and fumatore:
+  print("Attenzione: fattori di rischio presenti.")
 else:
-    print("Livello di rischio normale.")
+  print("Livello di rischio normale.")
 
-# Riepilogo finale
-print(f"\nRiepilogo:")
+print("\nRiepilogo:")
+print(f"Nome: {nome}")
+print(f"Età: {eta}")
+print(f"Pressione: {pressione}")
+print(f"Fumatore: {fumatore}")
+```
+
+Variante con input() (opzionale)
+```python
+nome = input("Nome del paziente: ")
+eta = int(input("Età del paziente: "))
+pressione = float(input("Pressione sistolica: "))
+fumatore = input("Il paziente è fumatore? (s/n): ").strip().lower() == "s"
+
+if pressione >= 140:
+  print("Grave rischio ipertensione!")
+elif pressione >= 120:
+  print("Rischio ipertensione.")
+elif eta >= 65 and fumatore:
+  print("Attenzione: fattori di rischio presenti.")
+else:
+  print("Livello di rischio normale.")
+
+print("\nRiepilogo:")
 print(f"Nome: {nome}")
 print(f"Età: {eta}")
 print(f"Pressione: {pressione}")
@@ -426,39 +594,37 @@ print(f"Fumatore: {fumatore}")
 
 ---
 
-### Problema 2 – Frequenze Cardiache
+### Soluzione Problema 2
 
+Versione con accumulatore (coerente con la consegna)
 ```python
-# Frequenze cardiache acquisite ogni minuto
 frequenze = [72, 78, 90, 65, 100, 88, 76, 80, 110, 95]
 
 normali = 0
 anomale = 0
+somma = 0
 
-for i, bpm in enumerate(frequenze):
-    print(f"Frequenza minuto {i+1}: {bpm} bpm")
-    if bpm < 60:
-        print("→ Frequenza troppo bassa")
-        anomale += 1
-    elif bpm > 100:
-        print("→ Frequenza eccessiva")
-        anomale += 1
-    else:
-        print("→ Frequenza nella norma")
-        normali += 1
+for i, bpm in enumerate(frequenze, start=1):
+  print(f"Frequenza minuto {i}: {bpm} bpm")
+  if bpm < 60:
+    print("→ Frequenza troppo bassa")
+    anomale += 1
+  elif bpm > 100:
+    print("→ Frequenza eccessiva")
+    anomale += 1
+  else:
+    print("→ Frequenza nella norma")
+    normali += 1
+  somma += bpm
 
-media = sum(frequenze) / len(frequenze)
+media = somma / len(frequenze) if frequenze else 0
 print(f"\nMedia: {media:.2f} bpm")
 print(f"Valori normali: {normali}, anomali: {anomale}")
 ```
 
-Variante: leggi i valori dall’utente, converti in lista e ripeti il calcolo.
-Esempio di input: 72, 78, 90, 65, 100, 88, 76, 80, 110, 95
-
+Alternativa con sum()
 ```python
-valori_input = input("Inserisci frequenze separate da virgola: ")
-# Pulisci spazi e converti in interi
-frequenze = [int(x.strip()) for x in valori_input.split(',') if x.strip()]
+frequenze = [72, 78, 90, 65, 100, 88, 76, 80, 110, 95]
 
 normali = 0
 anomale = 0
@@ -480,12 +646,34 @@ print(f"\nMedia: {media:.2f} bpm")
 print(f"Valori normali: {normali}, anomali: {anomale}")
 ```
 
----
+Variante con input() (senza liste comprensione)
+```python
+valori_input = input("Inserisci frequenze separate da virgola: ")
 
-## Culture Pill / Esterni
-Piccoli approfondimenti:
-- Esplora la **Zen of Python** con:
-  ```python
-  import this
-  ```
-- Comprendere la filosofia “chiara, leggibile, esplicita”.
+frequenze = []
+for tok in valori_input.split(','):
+  t = tok.strip()
+  if t:
+    frequenze.append(int(t))
+
+normali = 0
+anomale = 0
+somma = 0
+
+for i, bpm in enumerate(frequenze, start=1):
+  print(f"Frequenza minuto {i}: {bpm} bpm")
+  if bpm < 60:
+    print("→ Frequenza troppo bassa")
+    anomale += 1
+  elif bpm > 100:
+    print("→ Frequenza eccessiva")
+    anomale += 1
+  else:
+    print("→ Frequenza nella norma")
+    normali += 1
+  somma += bpm
+
+media = somma / len(frequenze) if frequenze else 0
+print(f"\nMedia: {media:.2f} bpm")
+print(f"Valori normali: {normali}, anomali: {anomale}")
+```

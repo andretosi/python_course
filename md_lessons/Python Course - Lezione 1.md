@@ -45,26 +45,19 @@
 > - Python da Terminale
 > 
 > **Lezione 3 (13/10)**
-> - Data Types 1 e relativi metodi (Test su Python da Terminale):
-> - If/else/elif
-> - Data Types 2 e relativi metodi:
-> - For Loops
-> - Culture Pill/esterni
-> - Data Types 3
-> - Funzioni 1
-> - While loops
-> - Data Types 4:
-> - Culture Pill/esterni
-> 
-> **GitHub Forse **
-> - ...
-> ![](attachment/2b44303ea7e3dbf17ae78e2e3aee7570.png)
+> - Variabili
+> - Commenti
+> - Typecasting
+> - 
 > **Lezione 4 (15/10)**
-> - Funzioni 2
-> - Classi 1
-> - Ambienti Virtuali
-> - numpy
-> 
+> - If/else/elif
+> - Operazioni logiche e algebriche
+> - Cenni su venv
+> - Liste
+> - For Loops
+> - Matrici
+> - Funzioni 
+> - While loops
 > **Lezione 5 (22/10)**
 > - Classi 2
 > - Error Handling

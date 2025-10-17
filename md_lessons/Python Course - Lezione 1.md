@@ -64,9 +64,6 @@
 > - File esterni
 > - Creare una Libreria
 > - Culture Pill/esterni
-> ![](attachment/00f324f36ec15047f5a92a6ff17a3928.png)
-> 
-> **DECIDERE PROGETTO COSA FARE E MODIFICARE PROSSIME LEZIONI DI CONSEGUENZA**
 > 
 > **Lezione 6 (12/11) (data Analysis 101)** 
 > - Pandas

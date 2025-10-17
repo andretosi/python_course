@@ -48,7 +48,7 @@
 > - Variabili
 > - Commenti
 > - Typecasting
-> - 
+>   
 > **Lezione 4 (15/10)**
 > - If/else/elif
 > - Operazioni logiche e algebriche
@@ -58,32 +58,55 @@
 > - Matrici
 > - Funzioni 
 > - While loops
+> 
 > **Lezione 5 (22/10)**
-> - Classi 2
+> - Ambienti Virtuali: utilità, venv (creazione, attivazione, gestione dipendenze).
+> - Jupyter Notebook: introduzione, installazione, utilizzo base (anche in VS Code).
+> - Funzioni (approfondimento): scope, valori di ritorno multipli, *args , **kwargs , funzioni Lambda, docstring.
+> - Classi (introduzione): de nizione ( class ), costruttore __init__ , attributi, metodi, istanze.
+> - Iteratori: concetto ( __iter__ , __next__ ), utilità.
+> - NumPy (introduzione): ndarray , vettorizzazione, broadcasting, creazione array, operazioni base, slicing, indicizzazione Classi 2
 > - Error Handling
 > - File esterni
 > - Creare una Libreria
 > - Culture Pill/esterni
 > 
 > **Lezione 6 (12/11) (data Analysis 101)** 
-> - Pandas
-> - Matplotlib
-> - Numpy 2
-> - Culture Pill/esterni
+> - Iteratori (approfondimento): creazione personalizzata, Generatori ( yield ), funzioni map(), filter() , zip().
+> - Ereditarietà nelle Classi: concetto, vantaggi, super() .
+> - Esercizio sulle Classi: implementazione classe Studente .
+> - File Handling (cenni).
+> - Error Handling (Gestione degli Errori): SyntaxError vs Exceptions , AssertionError, raise Exception , assert , blocco try...except...else...finally
 > 
 > **Lezione 7 (19/11)**
-> - Jupyter Notebook
-> - PyTorch
-> - Culture Pill/esterni
-> 
+> - Programmazione Orientata agli Oggetti (OOP): esercizio su gerarchia di classi ( Persona , Esame , Studente ).
+> - Pandas:
+> - Data Wrangling: importazione, pulizia, ristrutturazione, ltraggio, aggregazione, unione dati.
+> - Gestione File: CSV, Excel, JSON.
+> - NumPy (approfondimento):
+> - Concetti: dtype , vettorizzazione, broadcasting, shape, axes.
+> - Operazioni: indicizzazione avanzata, masking, trasposizione, ordinamento, concatenazione, aggregazione.
+> - Matplotlib (Introduzione alla Visualizzazione) (se non si nisce va nella lezione buffer):
+> - Gerarchia oggetti ( Figure , Axes ), approccio statico vs. orientato agli oggetti.
+> - Creazione gra ci multipli, personalizzazione, integrazione con Pandas
 > **Lezione 8 (26/11)**
-> - Progetto
-> - Culture Pill/esterni
-> 
+> - Concetti Fondamentali di Deep Learning: Spiegazione dei vari algoritmi, applicazioni e di dove sicolloca all'interno del Machine Learning.
+> - Introduzione alle reti neurali, percettrone, rete neurale, forward and backward propagation, Gradient Descent (intuitivamente), preparazione dei dati divisione del dataset.
+> - Introduzione a PyTorch e Torchvision: installazione, dataset, trasformazioni.
+> - Preparazione Dati: torchvision.transforms , torchvision.datasets.CIFAR10 , DataLoader .
+> - Visualizzazione Dati con matplotlib .
+> - Definizione Rete Neurale Convoluzionale (CNN): nn.Module , nn.Conv2d , nn.MaxPool2d , nn.Linear , metodo forward .
+> - Funzione di Perdita ( nn.CrossEntropyLoss ) e Ottimizzatore ( torch.optim.SGD ).
+> - Addestramento Rete: ciclo epoche, forward/backward pass, aggiornamento pesi.
+> - Salvataggio e Test del Modello: torch.save , load_state_dict , calcolo accuratezza.
+> - Cenni su addestramento GPU e layer Conv2d .
+> - Mini tutorial su Git e GitHub: init , add , commit , push , README.md .
 > **Lezione 9 (03/12)**
-> - Progetto
-> - Culture Pill/esterni
-> - Saluti
+> - Presentazione Progetti Finali: MVP o idee progettuali dettagliate.
+> - Valutazione Progetti e "Premiazione".
+> - Consegna Progetto come requisito per attestato.
+> - Riflessioni finali, risorse per apprendimento continuo.
+ Saluti e raccolta feedback sul corso
 
 Progetto finale in Pytorch
 

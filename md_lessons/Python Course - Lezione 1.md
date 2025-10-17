@@ -71,7 +71,7 @@
 > - Creare una Libreria
 > - Culture Pill/esterni
 > 
-> **Lezione 6 (12/11) (data Analysis 101)** 
+> **Lezione 6 (12/11)** 
 > - Iteratori (approfondimento): creazione personalizzata, Generatori ( yield ), funzioni map(), filter() , zip().
 > - Ereditarietà nelle Classi: concetto, vantaggi, super() .
 > - Esercizio sulle Classi: implementazione classe Studente .

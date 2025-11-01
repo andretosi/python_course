@@ -239,7 +239,7 @@ AttributeError: 'Lion' object has no attribute 'owner'
 Mufasa è il re, non ha padrone!!!
 *N.B. L'override, in generale, è da evitare.*
 
-# Esercizi su Dizionari e CLassi
+# Esercizi su Dizionari e Classi
 ### Esercizio 1: Gestione Pazienti
 Scrivi una funzione che crei un dizionario per rappresentare un paziente con i seguenti dati:
 

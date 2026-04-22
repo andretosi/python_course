@@ -1,16 +1,13 @@
-# Corso Python – Lezione 2: Ambiente, Data Types, If/Else, Liste e Cicli For
+# Lezione 2 – Python di base: tipi di dato, strutture di controllo, liste e funzioni
 
 ## Indice
-- [Corso Python – Lezione 2: Ambiente, Data Types, If/Else, Liste e Cicli For](#corso-python--lezione-2-ambiente-data-types-ifelse-liste-e-cicli-for)
+- [Lezione 2 – Python di base: tipi di dato, strutture di controllo, liste e funzioni](#lezione-2--python-di-base-tipi-di-dato-strutture-di-controllo-liste-e-funzioni)
   - [Indice](#indice)
   - [Prima di iniziare](#prima-di-iniziare)
     - [Regole sui percorsi](#regole-sui-percorsi)
   - [Recap Lezione 1](#recap-lezione-1)
     - [Cosa abbiamo fatto](#cosa-abbiamo-fatto)
     - [Quando usare altri linguaggi](#quando-usare-altri-linguaggi)
-  - [Ambienti Virtuali (venv)](#ambienti-virtuali-venv)
-    - [Cos’è un ambiente virtuale](#cosè-un-ambiente-virtuale)
-    - [Comandi principali](#comandi-principali)
   - [Python Basics](#python-basics)
     - [Commenti](#commenti)
     - [Variabili](#variabili)
@@ -26,14 +23,17 @@
     - [Liste](#liste)
   - [If / Else / Elif](#if--else--elif)
   - [Cicli For](#cicli-for)
+  - [Funzioni](#funzioni)
   - [PEP 8 e buone pratiche](#pep-8-e-buone-pratiche)
   - [Esercizi Pratici](#esercizi-pratici)
     - [Problema 1 – Valutazione Rischio Paziente](#problema-1--valutazione-rischio-paziente)
     - [Problema 2 – Frequenze Cardiache](#problema-2--frequenze-cardiache)
+    - [Problema 3 – BMI con funzione](#problema-3--bmi-con-funzione)
   - [Culture Pill / Esterni](#culture-pill--esterni)
   - [Soluzioni](#soluzioni)
     - [Soluzione Problema 1](#soluzione-problema-1)
     - [Soluzione Problema 2](#soluzione-problema-2)
+    - [Soluzione Problema 3](#soluzione-problema-3)
 
 ---
 
@@ -42,12 +42,13 @@
 - Localizzare la cartella di lavoro.  
 - Cancellare i file inutili.  
 - Aprire **Visual Studio Code**.  
+- Se hai creato un ambiente virtuale nella lezione 1, attivalo.  
 - Ricreare i file con **nomi senza spazi**.  
 - Usare `print(f"...")` e non `printf()`.  
 - Testare che Python funzioni correttamente.
 
 ### Regole sui percorsi
-Usare solo lettere, numeri e trattini bassi o alti nei nomi di file e cartelle.  
+Usare solo lettere, numeri, trattini bassi `_` o trattini medi `-` nei nomi di file e cartelle.  
 Evitare spazi o simboli speciali.
 
 Esempi di percorsi:
@@ -74,16 +75,19 @@ touch file.py
 ## Recap Lezione 1
 
 ### Cosa abbiamo fatto
-- Perché usare Python:
-  - Facile da imparare e molto diffuso.  
-  - Ottimo per prototipare e per il Machine Learning.  
-- Perché usare Linux:
-  - Più leggero, efficiente e standard per i sistemi embedded, open-source.  
+- Perché Python:
+  - Facile da imparare, molto diffuso, ottimo per prototipare e per il Machine Learning.
+- Perché Linux (WSL o nativo):
+  - Leggero, efficiente, standard per sistemi embedded e server, open-source.
 - Perché Visual Studio Code:
-  - IDE moderno, ricco di estensioni e ampiamente supportato. Più linguaggi da poter usare contemporaneamente. 
+  - IDE moderno, estensioni per tutti i linguaggi, funziona con venv e Jupyter senza attriti.
+- Ambienti virtuali (`venv`):
+  - Isolano le dipendenze di ogni progetto. Ricorda: **attivare** prima di installare con `pip`.
+- Jupyter Notebook:
+  - Celle di codice + Markdown, ottimo per esplorare dati e documentare ragionamenti.
 
 - Perché non usare solo Google Colab/compilatori online:
-  - Sono ottimi per la ricerca e prototipi, ma nel lavoro reale spesso si lavora su macchine/server senza interfaccia grafica.  
+  - Sono ottimi per la ricerca e prototipi, ma nel lavoro reale spesso si lavora su macchine/server senza interfaccia grafica.
   - Abituarsi al terminale e all'ambiente locale aiuta a essere produttivi in contesti professionali.
 
 ### Quando usare altri linguaggi
@@ -95,38 +99,20 @@ touch file.py
 
 ---
 
-## Ambienti Virtuali (venv)
-
-### Cos’è un ambiente virtuale
-Un **ambiente virtuale** permette di isolare le dipendenze di un progetto Python, evitando conflitti tra pacchetti e versioni.
-
-### Comandi principali
-1. Creare un ambiente:
-   ```bash
-   python3 -m venv myenv
-   ```
-2. Attivarlo:
-   ```bash
-   . myenv/bin/activate
-   ```
-3. Disattivarlo:
-   ```bash
-   deactivate
-   ```
-
----
-
 ## Python Basics
 
 ### Commenti
 ```python
 # Questo è un commento singolo
 
-""" Questo è un commento
-su più righe, utile per spiegazioni
-o documentazione interna. """
+"""
+Questa è una stringa multilinea.
+Se la metti all'inizio di un file o di una funzione
+diventa una docstring, cioè documentazione leggibile da Python.
+"""
 ```
 
+Per commentare davvero si usa `#`. Le triple virgolette tornano molto utili soprattutto per le **docstring**, che rivedremo meglio nella sezione sulle funzioni.
 Scrivere sempre commenti chiari per spiegare **perché** si fa qualcosa, non solo **cosa** si fa.
 
 ---
@@ -139,6 +125,14 @@ Le variabili possono contenere:
 - trattini bassi `_`  
 
 Non possono iniziare con un numero.
+
+Esempi rapidi:
+```python
+eta_paziente = 25   # ok
+eta2 = 25           # ok
+# 2eta = 25         # no: inizia con un numero
+# eta-paziente = 25 # no: '-' viene letto come sottrazione
+```
 
 Esempio:
 ```python
@@ -189,29 +183,7 @@ Note importanti:
 - `input()` → sempre stringa: usa `int(...)` o `float(...)` per numeri.  
 - Se la conversione fallisce (es. testo non numerico), Python solleva un `ValueError` (vedi "Leggere gli errori").
 
-Perché si può usare senza importare nulla?  
-In Python, `input()` è una funzione integrata, parte del modulo speciale `builtins` che è caricato automaticamente dall'interprete. Queste funzioni sono disponibili nello spazio dei nomi globale senza bisogno di `import`.
-
-Confronto rapido con Java:
-```java
-// Java: serve importare e creare un lettore
-import java.util.Scanner;
-
-Scanner sc = new Scanner(System.in);
-System.out.print("Età: ");
-int eta = sc.nextInt();
-```
-
-```python
-# Python: funzione built-in disponibile subito
-eta = int(input("Età: "))
-```
-
-Se vuoi esplorare i built-in disponibili:
-```python
-import builtins
-print(dir(builtins))
-```
+Curiosità, non da memorizzare adesso: `input()` è una funzione **built-in**, cioè è già disponibile senza bisogno di `import`.
 
 ---
 
@@ -221,6 +193,14 @@ print(dir(builtins))
 ```python
 vero = True
 falso = False
+```
+
+I boolean compaiono spesso come risultato di confronti o espressioni logiche:
+```python
+eta >= 18           # True o False
+pressione > 140     # True o False
+fumatore and eta > 65
+not febbre
 ```
 
 ### Stringhe
@@ -331,18 +311,22 @@ len(frutti)      # lunghezza
 
 Istruzioni condizionali:
 ```python
-eta = 70
-if eta > 65:
-    print("Senior")
-elif eta > 18:
-    print("Adulto")
+pressione = 145
+
+if pressione >= 140:
+    print("Grave rischio ipertensione!")
+elif pressione >= 120:
+    print("Rischio ipertensione.")
 else:
-    print("Minorenne")
+    print("Pressione nella norma")
 ```
+
+Python controlla le condizioni **dall'alto verso il basso** e si ferma al primo ramo vero. Quindi l'ordine conta.
 
 ---
 
 ## Cicli For
+Il ciclo `for` serve a ripetere un blocco di codice per ogni elemento di una sequenza.
 ```python
 for numero in [1, 2, 3]:
     print(numero)
@@ -352,18 +336,111 @@ Altri esempi comuni:
 ```python
 # range(start, stop, step) genera sequenze di interi
 for i in range(5):         # 0,1,2,3,4
-  print(i)
+    print(i)
 
 for i in range(1, 6):      # 1..5
-  print(i)
+    print(i)
 
 for i in range(0, 10, 2):  # 0,2,4,6,8
-  print(i)
+    print(i)
 
 # enumerate per ottenere indice e valore
 frutti = ["mela", "banana", "pera"]
 for i, frutto in enumerate(frutti, start=1):
-  print(f"{i}: {frutto}")
+    print(f"{i}: {frutto}")
+```
+
+---
+
+## Funzioni
+
+Una **funzione** è un blocco di codice riutilizzabile: si definisce una volta, si chiama quante volte serve. Aiuta a evitare duplicazione e a dare un nome chiaro a un'operazione.
+Puoi pensarla come a una mini-macchina: riceve input, fa un'elaborazione e opzionalmente restituisce un output.
+
+Si definisce con `def`:
+```python
+def saluta(nome):
+    print(f"Ciao {nome}!")
+
+saluta("Anna")   # Ciao Anna!
+saluta("Marco")  # Ciao Marco!
+```
+
+### `return`
+Se la funzione deve restituire un valore al chiamante si usa `return`:
+```python
+def area_rettangolo(base, altezza):
+    return base * altezza
+
+a = area_rettangolo(3, 4)   # 12
+```
+
+Una funzione senza `return` restituisce implicitamente `None`.
+
+> **Differenza importante**: `print()` stampa a schermo, `return` **restituisce** un valore al chiamante. Sono cose diverse.
+
+### Parametri di default
+Un parametro può avere un valore predefinito, usato se il chiamante non ne fornisce uno:
+```python
+def saluta(nome, saluto="Ciao"):
+    print(f"{saluto} {nome}!")
+
+saluta("Anna")              # Ciao Anna!
+saluta("Marco", "Salve")    # Salve Marco!
+```
+
+### Argomenti keyword
+Gli argomenti si possono passare anche specificandone il nome. Rende la chiamata più leggibile, utile quando i parametri sono molti:
+```python
+area_rettangolo(base=3, altezza=4)
+```
+
+### Restituire più valori
+Python permette di restituire più valori separandoli con la virgola (tecnicamente è una tupla):
+```python
+def min_max(valori):
+    return min(valori), max(valori)
+
+m, M = min_max([3, 7, 1, 9, 4])   # m=1, M=9
+```
+
+### Scope delle variabili
+Le variabili definite **dentro** una funzione sono locali: non esistono fuori da lì.
+```python
+def f():
+    x = 10
+    print(x)
+
+f()
+print(x)   # NameError: x non esiste qui
+```
+
+### Docstring
+Buona pratica: documentare cosa fa la funzione con una stringa subito sotto `def`. La si legge con `help(nome_funzione)`.
+```python
+def area_cerchio(raggio):
+    """Restituisce l'area di un cerchio dato il raggio."""
+    return 3.14159 * raggio ** 2
+```
+
+### Esempio in ambito biomedico
+```python
+def bmi(peso_kg, altezza_m):
+    """Calcola il Body Mass Index."""
+    return peso_kg / altezza_m ** 2
+
+def classifica_bmi(valore):
+    if valore < 18.5:
+        return "Sottopeso"
+    elif valore < 25:
+        return "Normopeso"
+    elif valore < 30:
+        return "Sovrappeso"
+    else:
+        return "Obesità"
+
+indice = bmi(70, 1.75)
+print(f"BMI: {indice:.1f} → {classifica_bmi(indice)}")
 ```
 
 ---
@@ -376,7 +453,7 @@ for i, frutto in enumerate(frutti, start=1):
 - Lasciare righe vuote per separare le sezioni.  
 
 Per consultare lo standard:
-👉 [PEP 8 – Style Guide for Python Code](https://python.org/dev/peps/pep-0008)
+👉 [PEP 8 – Style Guide for Python Code](https://peps.python.org/pep-0008/)
 
 ---
 
@@ -388,7 +465,7 @@ Scrivi un programma in Python che simuli una semplice **valutazione di rischio**
 
 Nota sulle risorse disponibili in questa lezione:
 - Usa solo variabili, numeri, boolean, stringhe, `if/elif/else`, liste e `for` (se serve).
-- Non usare `input()` (lo vedremo più avanti). Imposta i valori direttamente in variabili.
+- Non è necessario usare `input()`: per questa prima versione imposta i valori direttamente in variabili.
 
 Opzionale
 - Se preferisci leggere i dati da tastiera, puoi usare `input()` (vedi sezione: "Input da tastiera (input())").
@@ -495,26 +572,26 @@ valori_input = input("Inserisci frequenze separate da virgola: ")
 # Costruisci la lista di interi senza liste comprensione
 frequenze = []
 for tok in valori_input.split(','):
-  t = tok.strip()
-  if t:  # ignora vuoti
-    frequenze.append(int(t))
+    t = tok.strip()
+    if t:  # ignora vuoti
+        frequenze.append(int(t))
 
 normali = 0
 anomale = 0
 somma = 0
 
 for i, bpm in enumerate(frequenze, start=1):
-  print(f"Frequenza minuto {i}: {bpm} bpm")
-  if bpm < 60:
-    print("→ Frequenza troppo bassa")
-    anomale += 1
-  elif bpm > 100:
-    print("→ Frequenza eccessiva")
-    anomale += 1
-  else:
-    print("→ Frequenza nella norma")
-    normali += 1
-  somma += bpm
+    print(f"Frequenza minuto {i}: {bpm} bpm")
+    if bpm < 60:
+        print("→ Frequenza troppo bassa")
+        anomale += 1
+    elif bpm > 100:
+        print("→ Frequenza eccessiva")
+        anomale += 1
+    else:
+        print("→ Frequenza nella norma")
+        normali += 1
+    somma += bpm
 
 media = somma / len(frequenze) if frequenze else 0
 print(f"\nMedia: {media:.2f} bpm")
@@ -526,6 +603,54 @@ Extra (facoltativo)
 ```python
 frequenze = [int(x.strip()) for x in input("Inserisci frequenze separate da virgola: ").split(',') if x.strip()]
 media = sum(frequenze) / len(frequenze) if frequenze else 0
+```
+
+---
+
+### Problema 3 – BMI con funzione
+
+Scrivi due funzioni per calcolare e classificare il BMI di un paziente.
+
+Nota sulle risorse disponibili in questa lezione:
+- Usa funzioni, `return`, `if/elif/else`, numeri e `print()`.
+- Tieni separate le responsabilità: una funzione calcola il valore, l'altra lo interpreta.
+
+Consegna
+- Definisci `bmi(peso_kg, altezza_m)` che restituisce `peso_kg / altezza_m ** 2`.
+- Definisci `classifica_bmi(valore)` che restituisce:
+  - `"Sottopeso"` se `valore < 18.5`
+  - `"Normopeso"` se `valore < 25`
+  - `"Sovrappeso"` se `valore < 30`
+  - `"Obesità"` altrimenti
+- Usa poi le due funzioni con i valori `peso_kg = 70` e `altezza_m = 1.75`.
+- Stampa il risultato con una cifra decimale e la classe finale.
+
+Scheletro di partenza
+```python
+def bmi(peso_kg, altezza_m):
+    # TODO: restituisci il BMI
+    pass
+
+def classifica_bmi(valore):
+    # TODO: restituisci la classe corretta
+    pass
+
+peso_kg = 70
+altezza_m = 1.75
+
+indice = bmi(peso_kg, altezza_m)
+print(f"BMI: {indice:.1f} → {classifica_bmi(indice)}")
+```
+
+Variante con input() (opzionale)
+```python
+peso_kg = float(input("Peso (kg): "))
+altezza_m = float(input("Altezza (m): "))
+```
+
+Esempio di output atteso
+```
+BMI: 22.9 → Normopeso
 ```
 
 ---
@@ -554,13 +679,13 @@ pressione = 118.0
 fumatore = True
 
 if pressione >= 140:
-  print("Grave rischio ipertensione!")
+    print("Grave rischio ipertensione!")
 elif pressione >= 120:
-  print("Rischio ipertensione.")
+    print("Rischio ipertensione.")
 elif eta >= 65 and fumatore:
-  print("Attenzione: fattori di rischio presenti.")
+    print("Attenzione: fattori di rischio presenti.")
 else:
-  print("Livello di rischio normale.")
+    print("Livello di rischio normale.")
 
 print("\nRiepilogo:")
 print(f"Nome: {nome}")
@@ -577,13 +702,13 @@ pressione = float(input("Pressione sistolica: "))
 fumatore = input("Il paziente è fumatore? (s/n): ").strip().lower() == "s"
 
 if pressione >= 140:
-  print("Grave rischio ipertensione!")
+    print("Grave rischio ipertensione!")
 elif pressione >= 120:
-  print("Rischio ipertensione.")
+    print("Rischio ipertensione.")
 elif eta >= 65 and fumatore:
-  print("Attenzione: fattori di rischio presenti.")
+    print("Attenzione: fattori di rischio presenti.")
 else:
-  print("Livello di rischio normale.")
+    print("Livello di rischio normale.")
 
 print("\nRiepilogo:")
 print(f"Nome: {nome}")
@@ -605,17 +730,17 @@ anomale = 0
 somma = 0
 
 for i, bpm in enumerate(frequenze, start=1):
-  print(f"Frequenza minuto {i}: {bpm} bpm")
-  if bpm < 60:
-    print("→ Frequenza troppo bassa")
-    anomale += 1
-  elif bpm > 100:
-    print("→ Frequenza eccessiva")
-    anomale += 1
-  else:
-    print("→ Frequenza nella norma")
-    normali += 1
-  somma += bpm
+    print(f"Frequenza minuto {i}: {bpm} bpm")
+    if bpm < 60:
+        print("→ Frequenza troppo bassa")
+        anomale += 1
+    elif bpm > 100:
+        print("→ Frequenza eccessiva")
+        anomale += 1
+    else:
+        print("→ Frequenza nella norma")
+        normali += 1
+    somma += bpm
 
 media = somma / len(frequenze) if frequenze else 0
 print(f"\nMedia: {media:.2f} bpm")
@@ -630,16 +755,16 @@ normali = 0
 anomale = 0
 
 for i, bpm in enumerate(frequenze, start=1):
-  print(f"Frequenza minuto {i}: {bpm} bpm")
-  if bpm < 60:
-    print("→ Frequenza troppo bassa")
-    anomale += 1
-  elif bpm > 100:
-    print("→ Frequenza eccessiva")
-    anomale += 1
-  else:
-    print("→ Frequenza nella norma")
-    normali += 1
+    print(f"Frequenza minuto {i}: {bpm} bpm")
+    if bpm < 60:
+        print("→ Frequenza troppo bassa")
+        anomale += 1
+    elif bpm > 100:
+        print("→ Frequenza eccessiva")
+        anomale += 1
+    else:
+        print("→ Frequenza nella norma")
+        normali += 1
 
 media = sum(frequenze) / len(frequenze) if frequenze else 0
 print(f"\nMedia: {media:.2f} bpm")
@@ -652,28 +777,76 @@ valori_input = input("Inserisci frequenze separate da virgola: ")
 
 frequenze = []
 for tok in valori_input.split(','):
-  t = tok.strip()
-  if t:
-    frequenze.append(int(t))
+    t = tok.strip()
+    if t:
+        frequenze.append(int(t))
 
 normali = 0
 anomale = 0
 somma = 0
 
 for i, bpm in enumerate(frequenze, start=1):
-  print(f"Frequenza minuto {i}: {bpm} bpm")
-  if bpm < 60:
-    print("→ Frequenza troppo bassa")
-    anomale += 1
-  elif bpm > 100:
-    print("→ Frequenza eccessiva")
-    anomale += 1
-  else:
-    print("→ Frequenza nella norma")
-    normali += 1
-  somma += bpm
+    print(f"Frequenza minuto {i}: {bpm} bpm")
+    if bpm < 60:
+        print("→ Frequenza troppo bassa")
+        anomale += 1
+    elif bpm > 100:
+        print("→ Frequenza eccessiva")
+        anomale += 1
+    else:
+        print("→ Frequenza nella norma")
+        normali += 1
+    somma += bpm
 
 media = somma / len(frequenze) if frequenze else 0
 print(f"\nMedia: {media:.2f} bpm")
 print(f"Valori normali: {normali}, anomali: {anomale}")
+```
+
+---
+
+### Soluzione Problema 3
+
+Versione base
+```python
+def bmi(peso_kg, altezza_m):
+    return peso_kg / altezza_m ** 2
+
+def classifica_bmi(valore):
+    if valore < 18.5:
+        return "Sottopeso"
+    elif valore < 25:
+        return "Normopeso"
+    elif valore < 30:
+        return "Sovrappeso"
+    else:
+        return "Obesità"
+
+peso_kg = 70
+altezza_m = 1.75
+
+indice = bmi(peso_kg, altezza_m)
+print(f"BMI: {indice:.1f} → {classifica_bmi(indice)}")
+```
+
+Variante con input() (opzionale)
+```python
+def bmi(peso_kg, altezza_m):
+    return peso_kg / altezza_m ** 2
+
+def classifica_bmi(valore):
+    if valore < 18.5:
+        return "Sottopeso"
+    elif valore < 25:
+        return "Normopeso"
+    elif valore < 30:
+        return "Sovrappeso"
+    else:
+        return "Obesità"
+
+peso_kg = float(input("Peso (kg): "))
+altezza_m = float(input("Altezza (m): "))
+
+indice = bmi(peso_kg, altezza_m)
+print(f"BMI: {indice:.1f} → {classifica_bmi(indice)}")
 ```

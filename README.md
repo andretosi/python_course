@@ -1,8 +1,23 @@
-# python_course
-Python Course materials made with love for the PoliMI course "_Python con fondamenti di data science e intelligenza artificiale_" in collaboration with the Biomedical Engineering Association (BEA).
+# Python Course – PoliMI Passion in Action
 
-If you find any error please write me at [andreatosi.info@gmail.com](mailto:andreatosi.info@gmail.com) or at [andrea3.tosi@mail.polimi.it](mailto:andrea3.tosi@mail.polimi.it).
+Materiali del corso **"Python: from fundamentals to ML, neural networks, and secure federated learning"** (cod. 064943), tenuto da Andrea Tosi al Politecnico di Milano in collaborazione con la Biomedical Engineering Association (BEA), sotto la supervisione del Prof. Pietro Pinoli.
 
-Special Thanks to Gioele Longhi and Paolo Tiberio for helping me with the course and editing the materials, as well as to Professor Pietro Pinoli for believing in this project.
+Per informazioni su obiettivi, programma, aule e calendario vedi **[CORSO_INFO.md](CORSO_INFO.md)**.
+
+## Struttura del repository
+
+- [CORSO_INFO.md](CORSO_INFO.md) – info corso, calendario e aule
+- [md_lessons/](md_lessons/) – materiali delle lezioni in Markdown
+  - [Python Course - Lezione 1.md](md_lessons/Python%20Course%20-%20Lezione%201.md)
+  - [Python Course - Lezione 2.md](md_lessons/Python%20Course%20-%20Lezione%202.md)
+  - `Python Installation Guide.pdf`
+- [anni_precedenti/](anni_precedenti/) – materiali degli anni accademici passati
+
+## Contatti
+
+Per segnalare errori o dare feedback:
+[andreatosi.info@gmail.com](mailto:andreatosi.info@gmail.com) · [andrea3.tosi@mail.polimi.it](mailto:andrea3.tosi@mail.polimi.it)
+
+Grazie a Gioele Longhi e Paolo Tiberio per il supporto sul corso e sul materiale, e al Prof. Pietro Pinoli per aver creduto in questo progetto.
 
 _Andrea Tosi_

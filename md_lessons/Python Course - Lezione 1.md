@@ -1,138 +1,31 @@
-# Lesson 1
+# Lezione 1 – Ambiente di lavoro, Jupyter Notebook, ambienti virtuali e introduzione a Python
 
-- - -
-### **INZIO**
-
-- - -
-### Spiegazione Struttura Corso
-
-#### **Obiettivi**:
->Introdurre sintassi, paradigmi e best practice di Python, dal terminale alla programmazione a oggetti.  
->Sviluppare capacità di problem-solving algoritmico, applicando strutture dati, funzioni, classi e librerie scientifiche.  
->Fornire un primo toolkit per Data Science (NumPy, Pandas, Matplotlib) e un assaggio di deep learning (PyTorch).  
->Abituare a un workflow professionale: Linux/WSL, virtual-env, VS Code, versionamento Git.  
->Potenziare soft skills: lavoro di squadra, gestione di progetto, public speaking tecnico.  
-#### **Strumenti didattici**:
->**Ambiente**: WSL + Ubuntu, qualunque distribuzione Linux, macOS Terminal, VS Code con estensioni Python/Git.  
->**Stack**: Python > 3.10, gestione dipendenze, NumPy, Pandas, Matplotlib, PyTorch (intro), Markdown per i report.  
->**Metodologia**: lezioni brevi alternate a micro-challenge; sessioni hands-on; CulturePill (pillole su etica, storia e community open-source, progetti Python di esperti); seminari.
-#### **Orario**:
-|Giorno | Aula | Orario da-a |
- |-----------|-----------|-----------|
-|06/10/2025|	2.1.1|	17:30-19:30|
-|08/10/2025|	3.1.8|	17:30-19:30|
-|13/10/2025|	3.1.5|	17:30-19:30|
-|15/10/2025|	B.2.4|  17:30-19:30|
-|22/10/2025|	3.1.8|	17:30-19:30|
-|12/11/2025|	3.1.8|	17:30-19:30|
-|19/11/2025|	3.1.8|	16:30-19:30|
-|26/11/2025|	3.1.8|	17:30-19:30|
-|03/12/2025|	3.1.8|	17:30-19:30|
-> 
-> **Lezione 1 (06/10)**
-> [[Lezione 1 - Python Course]] 
-> - Installazione WSL per chi ha windows
-> - **INZIO**
-> - Spiegazione Struttura Corso
-> - Intervento Prof Pinoli
-> - Perchè Linux
-> - Installazione e Aggiornamento Terminali (Ubuntu e MAC)
-> 
-> **Lezione 2 (8/10)**
-> - Comandi Terminali (con Mirko)
-> - Visual Studio
-> - Introduzione a Python
-> - Python da Terminale
-> 
-> **Lezione 3 (13/10)**
-> - Variabili
-> - Commenti
-> - Typecasting
->   
-> **Lezione 4 (15/10)**
-> - If/else/elif
-> - Operazioni logiche e algebriche
-> - Cenni su venv
-> - Liste
-> - For Loops
-> - Matrici
-> - Funzioni 
-> - While loops
-> 
-> **Lezione 5 (22/10)**
-> - Ambienti Virtuali: utilità, venv (creazione, attivazione, gestione dipendenze).
-> - Jupyter Notebook: introduzione, installazione, utilizzo base (anche in VS Code).
-> - Funzioni (approfondimento): scope, valori di ritorno multipli, *args , **kwargs , funzioni Lambda, docstring.
-> - Classi (introduzione): de nizione ( class ), costruttore __init__ , attributi, metodi, istanze.
-> - Iteratori: concetto ( __iter__ , __next__ ), utilità.
-> - NumPy (introduzione): ndarray , vettorizzazione, broadcasting, creazione array, operazioni base, slicing, indicizzazione Classi 2
-> - Error Handling
-> - File esterni
-> - Creare una Libreria
-> - Culture Pill/esterni
-> 
-> **Lezione 6 (12/11)** 
-> - Iteratori (approfondimento): creazione personalizzata, Generatori ( yield ), funzioni map(), filter() , zip().
-> - Ereditarietà nelle Classi: concetto, vantaggi, super() .
-> - Esercizio sulle Classi: implementazione classe Studente .
-> - File Handling (cenni).
-> - Error Handling (Gestione degli Errori): SyntaxError vs Exceptions , AssertionError, raise Exception , assert , blocco try...except...else...finally
-> 
-> **Lezione 7 (19/11)**
-> - Programmazione Orientata agli Oggetti (OOP): esercizio su gerarchia di classi ( Persona , Esame , Studente ).
-> - Pandas:
-> - Data Wrangling: importazione, pulizia, ristrutturazione, ltraggio, aggregazione, unione dati.
-> - Gestione File: CSV, Excel, JSON.
-> - NumPy (approfondimento):
-> - Concetti: dtype , vettorizzazione, broadcasting, shape, axes.
-> - Operazioni: indicizzazione avanzata, masking, trasposizione, ordinamento, concatenazione, aggregazione.
-> - Matplotlib (Introduzione alla Visualizzazione) (se non si nisce va nella lezione buffer):
-> - Gerarchia oggetti ( Figure , Axes ), approccio statico vs. orientato agli oggetti.
-> - Creazione gra ci multipli, personalizzazione, integrazione con Pandas
-> **Lezione 8 (26/11)**
-> - Concetti Fondamentali di Deep Learning: Spiegazione dei vari algoritmi, applicazioni e di dove sicolloca all'interno del Machine Learning.
-> - Introduzione alle reti neurali, percettrone, rete neurale, forward and backward propagation, Gradient Descent (intuitivamente), preparazione dei dati divisione del dataset.
-> - Introduzione a PyTorch e Torchvision: installazione, dataset, trasformazioni.
-> - Preparazione Dati: torchvision.transforms , torchvision.datasets.CIFAR10 , DataLoader .
-> - Visualizzazione Dati con matplotlib .
-> - Definizione Rete Neurale Convoluzionale (CNN): nn.Module , nn.Conv2d , nn.MaxPool2d , nn.Linear , metodo forward .
-> - Funzione di Perdita ( nn.CrossEntropyLoss ) e Ottimizzatore ( torch.optim.SGD ).
-> - Addestramento Rete: ciclo epoche, forward/backward pass, aggiornamento pesi.
-> - Salvataggio e Test del Modello: torch.save , load_state_dict , calcolo accuratezza.
-> - Cenni su addestramento GPU e layer Conv2d .
-> - Mini tutorial su Git e GitHub: init , add , commit , push , README.md .
-> **Lezione 9 (03/12)**
-> - Presentazione Progetti Finali: MVP o idee progettuali dettagliate.
-> - Valutazione Progetti e "Premiazione".
-> - Consegna Progetto come requisito per attestato.
-> - Riflessioni finali, risorse per apprendimento continuo.
- Saluti e raccolta feedback sul corso
-
-Progetto finale in Pytorch
-
-Tempistiche (potremmo sforare)
 ## Intro (20 min)
 
 1) *Cos’è Python*  
-Python è un linguaggio di programmazione interpretato, multi-paradigma e ad alto livello. È apprezzato per la sua sintassi pulita e leggibile, che lo rende un’ottima scelta sia per principianti sia per sviluppatori esperti. In Python puoi scrivere script veloci per prototipare un’idea o sviluppare progetti di grandi dimensioni grazie alla sua vasta libreria standard e al supporto di numerosi framework.
+Python è un linguaggio di programmazione ad alto livello, interpretato e multi-paradigma. In pratica: ha una sintassi abbastanza leggibile da permettere di concentrarsi più sul problema che sulla "burocrazia" del linguaggio. Per questo è una scelta molto comune sia per chi inizia sia per chi lavora già in automazione, analisi dati, machine learning e ricerca.
 
 2) *Cosa significa interpretato?* 
-in un linguaggio compilato (es. C, C++) il codice sorgente viene tradotto interamente in linguaggio macchina (generando un file eseguibile) *prima* dell’esecuzione, tramite un compilatore. Il risultato è un file binario, veloce ma meno portabile.
-In un linguaggio interpretato(es. Python, JavaScript), invece, il codice viene tradotto e eseguito riga per riga da un interprete. Non richiede compilazione preventiva, è più portabile e flessibile (Un programma C deve essere ricompilato per ogni sistema operativo, mentre uno script Python gira ovunque ci sia l’interprete), ma generalmente più lento.
-*Puoi pensare alla differenza tra un compilatore ed un interprete in informatica come alla differenza tra un traduttore e un interprete linguistico: Il primo prende un'intera opera, la traduce per iscritto in una seconda lingua e la riconsegna all'editore, il quale la distribuisce a suo piacimento al pubblico che parla questa seconda lingua. Se però vi sono errori e la traduzione non ha successo l'editore dovrà rispedire il manoscritto intero al traduttore. Un interprete invece "doppia" frase per frase ciò che dice l'intervistato. Se commette un errore può correggersi immediatamente ripetendo la parola/frase errata, inoltre può adattare la lingua della traduzione alla sua audience. Tuttavia la traduzione è meno scorrevole (ricca di "ehm", pause, imprecisioni etc).*
+A livello introduttivo, la differenza utile è questa:
+- in un linguaggio compilato (es. C, C++) il codice sorgente viene tradotto in un file eseguibile *prima* dell'esecuzione;
+- in Python il codice viene eseguito tramite un interprete, quindi di solito scrivi un file `.py` e lo lanci con `python3 nome_file.py`.
+
+Questo rende Python molto comodo per fare prove rapide, esercizi e prototipi. Il rovescio della medaglia è che, in generale, non è il linguaggio più veloce in assoluto.
+*Se vuoi un'immagine mentale: il compilatore ti consegna il testo già tradotto; l'interprete traduce mentre "parla". Il primo è in genere più efficiente, il secondo più flessibile per lavorare in modo interattivo.*
 
 3) *Perché Python*  
 • **Semplicità e velocità di sviluppo**: La sintassi chiara e la ricca collezione di librerie permettono di realizzare progetti in meno tempo rispetto ad altri linguaggi.  
 • **Comunità e risorse**: Python ha un’enorme community di sviluppatori, quindi è facile trovare guide e risolvere problemi, soprattutto nei campi più specialistici come la scienza dei dati e la bioinformatica.  
 • **Versatilità**: Python si usa in tantissimi ambiti, dal web development (Django, Flask), all’analisi dati e Machine Learning (pandas, NumPy, scikit-learn, PyTorch), fino ad applicazioni embedded (seppure meno frequenti).  
 • **Integrazione con altri linguaggi**: Python può interfacciarsi con librerie in C/C++ e Java, sfruttando così performance e compatibilità già esistenti.
-Le sue strutture dati integrate di alto livello, combinate con il tipizzazione dinamica (cioè il tipo di una variabile viene determinato durante l’esecuzione) e il binding dinamico, lo rendono molto attraente per lo Sviluppo Rapido di Applicazioni (RAD), nonché per l’uso come linguaggio di scripting o “collante” per collegare componenti esistenti. La sintassi semplice e facile da imparare di Python enfatizza la leggibilità e riduce quindi i costi di manutenzione del programma.
+Le sue strutture dati integrate di alto livello, combinate con la tipizzazione dinamica (cioè il tipo di una variabile viene determinato durante l’esecuzione) e il binding dinamico, lo rendono molto attraente per lo Sviluppo Rapido di Applicazioni (RAD), nonché per l’uso come linguaggio di scripting o “collante” per collegare componenti esistenti. La sintassi semplice e facile da imparare di Python enfatizza la leggibilità e riduce quindi i costi di manutenzione del programma.
 Python funge da “colla” che delega certe funzioni a pacchetti scritti in C.
 Python supporta moduli e pacchetti, che favoriscono la modularità del programma e il riutilizzo del codice. L’interprete Python e l’estesa libreria standard sono disponibili in forma sorgente o binaria senza costi per tutte le principali piattaforme e possono essere liberamente distribuiti.
-4) *Come Python*  
+4) *Come useremo Python nel corso*  
 • **Installazione:** In ambiente Linux/Ubuntu, è spesso pre-installato o facile da aggiungere tramite apt-get. In macOS si può installare con Homebrew o scaricando il pacchetto ufficiale, mentre in Windows è necessario scaricarlo dal sito ufficiale o tramite Microsoft Store (o usare WSL, come previsto dal corso).  
-• **Utilizzo:** Puoi scrivere i tuoi script in un qualsiasi editor di testo, avviarli da riga di comando (python script.py) oppure usare un IDE come Visual Studio Code, PyCharm o anche Jupyter Notebook per analisi interattive.  
-• **Virtual Environment:** In Python è raccomandabile gestire le dipendenze con virtual environment (venv) o ambienti conda, soprattutto se hai progetti diversi che richiedono versioni di librerie non compatibili fra loro.
+• **Editor e terminale:** Scriveremo file `.py`, li lanceremo da riga di comando e useremo Visual Studio Code come ambiente principale.  
+• **Jupyter Notebook:** Lo useremo quando ha senso lavorare in modo interattivo, per fare prove, esperimenti e piccole analisi.  
+• **Virtual environment:** Gestiremo le dipendenze con `venv`, così ogni progetto avrà il suo spazio isolato.
 
 5) *Esempi di Python in ambito biomedico*  
 • **Analisi di dati clinici**: Python è molto utilizzato per analizzare dataset di pazienti, estrarre statistiche grazie a librerie di data science e anche per la creazione di modelli di Machine Learning in ambito diagnostico o predittivo (ad esempio, previsione di complicanze post-operatorie).  
@@ -155,24 +48,27 @@ Python supporta moduli e pacchetti, che favoriscono la modularità del programma
 In sintesi, Python si rivela un linguaggio flessibile, potente e molto comprensibile, con una curva di apprendimento amichevole e un ecosistema di strumenti concepiti per la ricerca scientifica e il settore biomedico.
 
 
-#### Documentazione ufficiale
->Stack Overflow
->Siti vari
->ChatGPT (rischia di rendere frustrante l’apprendimento e di creare problemi in seguito, ricompensa a breve termine)
+#### Dove cercare aiuto quando qualcosa non funziona
+- Documentazione ufficiale
+- Stack Overflow
+- Siti vari, ma confrontando sempre più fonti
+- ChatGPT (può essere utile, ma se ci si appoggia troppo presto rischia di rendere l’apprendimento più frustrante: ricompensa immediata, comprensione meno solida)
+
 ## Setup (60 min)
 
-[[Programming Tools and Python Installation Guide]]
+Guida di supporto: [Python Installation Guide.pdf](Python%20Installation%20Guide.pdf)
 ### Windows
 
-**Installare wsl:**
+**Installare WSL:**
 
 Usa una versione leggermente diversa da quella che abbiamo visto noi. Provare a seguire il tutorial dall'inizio in caso di problemi. Prima di arrendersi al proprio destino provate a riavviare il computer, a molti ha risolto i problemi.
 https://learn.microsoft.com/en-us/windows/wsl/install
 
 
-**Installare python:**
+**Installare Python:**
 
 ```bash
+sudo apt update
 sudo apt install python3
 ```
 
@@ -197,17 +93,17 @@ In caso di problemi consultare il seguente link e seguire [procedure alternative
 	Seguire la sezione 5.1.1 di questo tutorial, non andare oltre.
 	https://docs.python.org/3/using/mac.html#installation-steps
 
-### Perchè Linux
+### Perché Linux
 
-- Perchè per progetti embedded si userà quello
-- perchè è il più versatile
-- perchè è uno standard
-- perchè ha una curva di apprendimento più difficile ed è meglio affrontarlo con qualcuno, da soli ci si trova disorientati.
+- perché è lo standard in tanti contesti tecnici, dai server ai cluster di calcolo;
+- perché per progetti embedded e ambienti HPC lo incontreremo spesso;
+- perché è molto versatile e si presta bene all'automazione;
+- perché ha una curva di apprendimento un po' più ruvida, quindi affrontarlo con qualcuno all'inizio aiuta parecchio.
 
 - Nel campo biomedico, molti dispositivi e strumenti diagnostici implementano sistemi operativi Linux, sfruttandone la stabilità e la versatilità.
 - L'ecosistema open-source di Linux offre grande trasparenza e possibilità di personalizzazione, una caratteristica importante per la ricerca.
 
-**Esempi di linux in ambito biomedico**
+**Esempi di Linux in ambito biomedico**
 
 1) Sistemi di analisi e modellazione di dati clinici su Linux in ambiente HPC (High Performance Computing)  
 	- In un laboratorio di ricerca biomedica, capita di dover processare grandi moli di dati, come immagini di risonanza magnetica (MRI), dati di genomica o sequenziamenti di DNA (NGS). Per elaborare questi dataset in modo efficiente, si utilizzano server Linux dotati di GPU e altre risorse ad alte prestazioni.  
@@ -226,14 +122,14 @@ In caso di problemi consultare il seguente link e seguire [procedure alternative
 
 In sintesi, i punti chiave sono l’elevata efficienza, la flessibilità e la stabilità che Linux offre in molti settori biomedici: dalla ricerca di base (analisi bioinformatiche, HPC) allo sviluppo di piccoli dispositivi embedded e strumenti di telemedicina.
 
-**Cos'è ubuntu**
+**Cos'è Ubuntu**
 
 Ubuntu è una distribuzione Linux particolarmente user-friendly e diffusa, ideale per chi desidera avvicinarsi al mondo Linux. Offre un ciclo di aggiornamenti stabile, un vasto supporto della community e un’ampia disponibilità di software precompilato, inclusi molti strumenti bioinformatici.
 
 
 ## Linux Commands 101
 
-Questa sezione è una guida rapida ai comandi base di Linux. Gli esempi sono pensati per essere eseguiti in sequenza, utilizzando un file `prova.txt` che creeremo e modificheremo.
+Questa sezione è una guida rapida ai comandi base di Linux. Gli esempi sono pensati per essere eseguiti in sequenza, utilizzando un file `prova.txt` che creeremo e modificheremo. Non serve impararli tutti a memoria oggi: l'obiettivo è iniziare a orientarsi.
 
 **`pwd` (Print Working Directory):** Mostra il percorso completo della cartella in cui ti trovi attualmente. È utile per orientarsi.
 ```bash
@@ -255,7 +151,7 @@ mkdir appunti_python
 cd appunti_python
 ```
 
-**`touch`:** Crea un file vuoto. Se il file esiste già, ne aggiorna la data di modifica. *N.B. il comando* touch *non è stato pensato per questo scopo ma nomerosi comandi del terminale Ubuntu vengono comunemente utilizzati per il loro* side effect
+**`touch`:** Crea un file vuoto. Se il file esiste già, ne aggiorna la data di modifica. Storicamente nasce per aggiornare il timestamp, ma nella pratica si usa spesso anche per creare file vuoti al volo.
 ```bash
 touch prova.txt
 ```
@@ -269,11 +165,11 @@ echo "Questa è la prima riga." > prova.txt
 ```bash
 cat prova.txt
 ```
-*è pensato per essere utilizzato con più file con questa sintassi* 
+*Nasce per essere usato con più file, con una sintassi del tipo:* 
 ```bash
 cat file1 file2 
 ```
-*La possibilità di usarlo per visualizzare un file è un altro, utile, side effect*
+*Però in pratica si usa continuamente anche per leggere rapidamente un file singolo.*
  
 **`echo` con `>>`:** A differenza di `>`, il doppio `>>` aggiunge il testo alla fine del file, senza cancellare il contenuto esistente.
 ```bash
@@ -290,11 +186,11 @@ cp prova.txt backup_prova.txt
 ```bash
 mv prova.txt note_importanti.txt
 ```
->*Siamo di fronte ad un altro esempio di side effect: move è pensato per spostare un file in una nuova cartella con questa sintassi:*
+>*Di nuovo: il caso "rinomina" è un uso comodissimo di un comando pensato soprattutto per spostare file. La sintassi generale è:*
 ```bash
 mv nome_file_originale cartella_target/nuovo_nome_file
 ```
->*Non specificando la cartella target lo si può usare per modificare il nome del file. Si può anche utilizzare senza specificare il nuovo nome del file, in questo caso l'effetto è uno spostamento senza variazione del nome del file*
+>*Se non specifichi una cartella target, lo puoi usare per cambiare nome al file. Se non cambi il nome, l'effetto è solo lo spostamento.*
 
 **`rm` (Remove):** Rimuove (cancella) un file. Facciamo attenzione, perché non c'è un cestino!
 ```bash
@@ -311,9 +207,9 @@ cd ..
 rm appunti_python/note_importanti.txt
 rmdir appunti_python
 ```
->*è anche possibile sfruttare il comando rm per rimuovere una directory e i file al suo interno, in questo caso è necessario specificarlo con un -l
+>*Si può anche usare `rm` per rimuovere una directory e tutto il suo contenuto, ma qui bisogna fare ancora più attenzione. Serve l'opzione `-r` ("recursive"):*
 ```bash
-rm -l appunti_python
+rm -r appunti_python
 ```
 
 **`man` (Manual):** Mostra il manuale di un comando, spiegando come funziona e quali opzioni ha. Per uscire, premi `q`.
@@ -346,7 +242,7 @@ Come gestire i pacchetti software da command line.
 |                                  |                                                                                                    |                                 |
 
 
-## Visual studio code (20 min)
+## Visual Studio Code (15 min)
 **Windows**
 1. Installa [Visual Studio Code](https://code.visualstudio.com/Download).
 2. Cerca il terminale (`Windows + S`)
@@ -355,18 +251,18 @@ Come gestire i pacchetti software da command line.
 	![](attachment/8746bdc7feaed470ab3f172228dfc575.png)
 4. Vai nella cartella python course:
 	`cd python_course`
-5. Avvia visual studio code in quella cartella
+5. Avvia Visual Studio Code in quella cartella
 	`code .`
-	Dovrebbe partire un download di un server che connette visual studio code a wsl, in questo modo visual studio code gira su windows modificando i dati in Linux 
+	Dovrebbe partire un download di un server che connette Visual Studio Code a WSL: in questo modo VS Code gira su Windows modificando i dati in Linux.
 
 6. Cliccare nella barra a sinistra sull'icona estensioni 
 ![](attachment/29eefb4da27cd8021280634e57b146f5.png)
-7. Cercare python nella barra di ricerca ed installare le seguenti estensioni
+7. Cercare python nella barra di ricerca ed installare le seguenti estensioni (Python + Jupyter)
 ![](attachment/aef99a4d055e83109f0f00048b70334f.png)
 
-8. Crea un nuovo file .py
-9. eseguilo da VScode
-10. Nota che si può accedere al terminale da VScode alzando la tendina in fondo alla videata
+8. Crea un nuovo file `.py` (per esempio `hello.py`) e scrivi un `print("Ciao")`
+9. Eseguilo da VS Code
+10. Nota che si può accedere al terminale da VS Code alzando la tendina in fondo alla videata
 
 **MAC**
 
@@ -376,22 +272,118 @@ Come gestire i pacchetti software da command line.
 4. Trascina `Visual Studio Code.app` nella cartella **Applicazioni**, rendendolo disponibile nel Launchpad di macOS.
 5. Apri VS Code dalla cartella **Applicazioni**, facendo doppio clic sull'icona.
 
-Puoi anche eseguire VS Code dal terminale digitando 'code' dopo averlo aggiunto al percorso:
+Puoi anche eseguire VS Code dal terminale digitando `code` dopo averlo aggiunto al percorso:
 - Avvia VS Code.
-- Apri la **Command Palette** (Cmd+Shift+P) e digita 'shell command' per trovare il comando **Shell Command: Install 'code' command in PATH**.
-undefined
-- Riavvia il terminale affinché il nuovo valore `$PATH` abbia effetto. Potrai digitare 'code .' in qualsiasi cartella per iniziare a modificare i file in quella cartella.
+- Apri la **Command Palette** (Cmd+Shift+P) e digita `shell command` per trovare il comando **Shell Command: Install 'code' command in PATH**.
+- Riavvia il terminale affinché il nuovo valore `$PATH` abbia effetto. Potrai digitare `code .` in qualsiasi cartella per iniziare a modificare i file in quella cartella.
 
 > **Nota:** Se hai ancora il vecchio alias `code` nel tuo `.bash_profile` (o equivalente) da una versione precedente di VS Code, rimuovilo e sostituiscilo eseguendo il comando **Shell Command: Install 'code' command in PATH**.
 
 [Se non funziona, provare a copiare ed incollare nel terminale questi comandi](https://code.visualstudio.com/docs/setup/mac#_alternative-manual-instructions).
 
-
-
 6. Cliccare nella barra a sinistra sull'icona estensioni 
 ![](attachment/29eefb4da27cd8021280634e57b146f5.png)
-7. Cercare python nella barra di ricerca ed installare le seguenti estensioni
+7. Cercare python nella barra di ricerca ed installare le seguenti estensioni (Python + Jupyter)
 ![](attachment/aef99a4d055e83109f0f00048b70334f.png)
-8. Crea un nuovo file .py
-9. eseguilo da VScode
-10. Nota che si può accedere al terminale da VScode alzando la tendina in fondo alla videata
+8. Crea un nuovo file `.py`
+9. Eseguilo da VS Code
+10. Nota che si può accedere al terminale da VS Code alzando la tendina in fondo alla videata
+
+---
+
+## Ambienti Virtuali (venv) (15 min)
+
+Un **ambiente virtuale** isola le dipendenze di un progetto Python. Evita che le librerie di un progetto "inquinino" quelle di un altro, e ti permette di avere versioni diverse delle stesse librerie in progetti diversi.
+
+>*Esempio: il progetto A usa `numpy 1.26`, il progetto B ha bisogno di `numpy 2.0`. Senza venv, scontro garantito.*
+
+### Creare e attivare
+
+```bash
+# 1. Creare l'ambiente (viene creata una cartella .venv nel progetto)
+python3 -m venv .venv
+
+# 2. Attivarlo (Linux / Mac / WSL)
+source .venv/bin/activate
+
+# 2b. Attivarlo (Windows PowerShell)
+.venv\Scripts\Activate.ps1
+```
+
+Quando è attivo, il prompt del terminale cambia e mostra `(.venv)` all'inizio.
+Da quel momento, i comandi `python` e `pip` puntano all'ambiente virtuale attivo e non all'installazione globale del sistema.
+
+### Installare pacchetti
+
+```bash
+pip install numpy pandas matplotlib
+```
+
+I pacchetti finiscono dentro `.venv/`, **non** nel sistema globale.
+
+### Salvare e ripristinare le dipendenze
+
+```bash
+pip freeze > requirements.txt     # congela la lista attuale in un file
+pip install -r requirements.txt   # reinstalla tutto da zero
+```
+
+`requirements.txt` va versionato in git, così chi clona il progetto può ricreare l'ambiente identico al tuo.
+
+### Uscire
+
+```bash
+deactivate
+```
+
+> **Convenzione:** chiama la cartella del venv `.venv` (col punto), aggiungila al `.gitignore` e non versionarla — è legata alla singola macchina. Va versionato solo `requirements.txt`.
+
+---
+
+## Jupyter Notebook (10 min)
+
+Un **Jupyter Notebook** è un file `.ipynb` fatto di **celle**: ogni cella contiene codice Python oppure testo in Markdown. Esegui una cella alla volta e vedi subito sotto l'output (numeri, tabelle, grafici). È lo strumento di elezione per analisi dati, sperimentazione rapida e presentazione di risultati.
+
+### Installazione
+Dentro il venv attivo:
+```bash
+pip install notebook ipykernel
+```
+
+### Due modi per usarli
+- **Da VS Code** (consigliato): crea un file `.ipynb`, apri, in alto a destra seleziona il kernel Python (quello del tuo `.venv`) e premi ▶️ su una cella.
+- **Da terminale**:
+  ```bash
+  jupyter notebook
+  ```
+  Apre il server locale nel browser.
+
+### Tipi di cella
+- **Code** → esegue Python, l'output appare subito sotto.
+- **Markdown** → testo formattato (titoli, liste, immagini, formule LaTeX).
+
+### Scorciatoie utili
+| Tasto                | Effetto                                 |
+| -------------------- | --------------------------------------- |
+| `Shift + Invio`      | Esegue la cella e passa alla successiva |
+| `Ctrl + Invio`       | Esegue la cella senza spostarsi         |
+| `Esc` poi `M`        | Trasforma la cella in Markdown          |
+| `Esc` poi `Y`        | Trasforma la cella in codice            |
+| `Esc` poi `A` / `B`  | Nuova cella sopra / sotto               |
+
+### Attenzione all'ordine di esecuzione
+Le variabili rimangono in memoria tra una cella e l'altra. Se esegui le celle fuori ordine rischi risultati incoerenti. Se qualcosa sembra sbagliato: **Kernel → Restart & Run All**.
+
+### Quando usarlo (e quando no)
+- ✅ Esplorazione dati, grafici, prototipi, tutorial, condivisione di analisi.
+- ❌ Software in produzione, pipeline automatiche, applicazioni: meglio script `.py` o moduli.
+
+### Check finale rapido
+A fine lezione dovresti riuscire a:
+- aprire la cartella del corso con `code .`;
+- verificare l'installazione con `python3 -V`;
+- creare e attivare `.venv`;
+- installare almeno un pacchetto con `pip`;
+- eseguire un file `.py` o una cella Jupyter usando il kernel corretto.
+
+Per esercitarti in autonomia: [Lezione 1 - Esercizi](Python%20Course%20-%20Lezione%201%20-%20Esercizi.md)

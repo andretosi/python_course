@@ -1,12 +1,12 @@
 # Lezione 1 – Esercizi guidati
 
-Questi esercizi servono a verificare che l'ambiente di lavoro sia davvero pronto. L'idea è semplice: fai un esercizio alla volta, controlla subito il risultato e non andare avanti se qualcosa non torna.
+Questi esercizi servono a verificare che l'ambiente di lavoro sia davvero pronto. Fai un esercizio alla volta, controlla subito il risultato e non andare avanti se qualcosa non torna.
 
-## Regole del gioco
+## Regole
 - Lavora in una cartella nuova, per esempio `lezione1_lab`.
 - Se usi Windows, esegui tutto dentro WSL/Ubuntu.
 - Salvo dove indicato, evita `sudo`.
-- Ogni esercizio ha un **check rapido**: se quel check passa, sei sulla strada giusta.
+- Ogni esercizio ha un **check**: se quel check passa, sei sulla strada giusta.
 
 ## Esercizio 1 – Cartelle e percorsi
 
@@ -21,7 +21,7 @@ Comandi suggeriti
 - `pwd`
 - `ls`
 
-Check rapido
+Check
 ```bash
 pwd
 ls ..
@@ -50,7 +50,7 @@ Comandi suggeriti
 - `mv`
 - `rm`
 
-Check rapido
+Check
 ```bash
 ls
 cat note_importanti.txt
@@ -73,7 +73,7 @@ Consegna
   - una frase a tua scelta
   - il risultato di `7 * 6`
 
-Check rapido
+Check
 ```bash
 python3 hello.py
 ```
@@ -92,7 +92,7 @@ Consegna
 - Apri `hello.py` in VS Code
 - Eseguilo da VS Code, non dal terminale esterno
 
-Check rapido
+Check
 - In VS Code devi vedere l'output del programma senza errori
 - Devi riuscire ad aprire anche il terminale integrato
 
@@ -119,7 +119,7 @@ Per chi usa PowerShell:
 .venv\Scripts\Activate.ps1
 ```
 
-Check rapido
+Check
 ```bash
 ls -a
 pip -V
@@ -142,7 +142,7 @@ Consegna
   - una seconda cella di codice che calcoli `3 * 5`
 - Esegui tutte le celle
 
-Check rapido
+Check
 - Il notebook si apre senza errori
 - Il kernel selezionato è quello del tuo `.venv`
 - Le celle producono output
@@ -156,7 +156,7 @@ Risultato atteso
 
 ## Check finale
 
-Sei a posto per la lezione 1 se riesci a fare tutto questo senza guardare ogni riga delle slide:
+Se riesci a fare queste cose sei a cavallo:
 - creare cartelle e file dal terminale
 - copiare, rinominare e cancellare file
 - lanciare `python3 hello.py`
@@ -165,4 +165,4 @@ Sei a posto per la lezione 1 se riesci a fare tutto questo senza guardare ogni r
 - installare un pacchetto con `pip`
 - eseguire almeno una cella in un notebook col kernel corretto
 
-Se uno di questi punti salta, non è un dramma: è esattamente il segnale giusto su cosa ripassare.
+Se non ti viene qualcosa chiedi a chat o a me direttamente alla fine dellala prossima lezione!

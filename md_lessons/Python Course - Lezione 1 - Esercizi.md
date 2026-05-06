@@ -7,6 +7,7 @@ Questi esercizi servono a verificare che l'ambiente di lavoro sia davvero pronto
 - Se usi Windows, esegui tutto dentro WSL/Ubuntu.
 - Salvo dove indicato, evita `sudo`.
 - Ogni esercizio ha un **check**: se quel check passa, sei sulla strada giusta.
+- Le soluzioni eseguibili sono raccolte in `lesson_code/lezione_1/soluzioni/`.
 
 ## Esercizio 1 – Cartelle e percorsi
 
@@ -37,7 +38,9 @@ Risultato atteso
 
 Consegna
 - Dentro `appunti` crea un file `note.txt`.
-- Scrivi nel file due righe di testo.
+- Scrivi nel file queste due righe:
+  - `gatto`
+  - `limone`
 - Crea una copia chiamata `note_backup.txt`.
 - Rinomina `note.txt` in `note_importanti.txt`.
 - Cancella il backup.
@@ -70,7 +73,7 @@ Consegna
 - Crea un file `hello.py`.
 - Il programma deve stampare:
   - `Ciao Python`
-  - una frase a tua scelta
+  - `Nella scatola c'e un limone.`
   - il risultato di `7 * 6`
 
 Check
@@ -165,4 +168,4 @@ Se riesci a fare queste cose sei a cavallo:
 - installare un pacchetto con `pip`
 - eseguire almeno una cella in un notebook col kernel corretto
 
-Se non ti viene qualcosa chiedi a chat o a me direttamente alla fine dellala prossima lezione!
+Se qualcosa non torna, ripeti il check prima di passare all'esercizio successivo.

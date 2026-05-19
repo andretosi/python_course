@@ -3,3 +3,9 @@
 __pycache__/
 *.pyc
 .claude/
+
+# PowerPoint presentations and temporary Office files
+*.ppt
+*.pptx
+*.pptm
+~$*.ppt*

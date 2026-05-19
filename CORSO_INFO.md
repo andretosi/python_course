@@ -27,7 +27,7 @@ Lezioni frontali brevi, esercitazioni guidate e momenti hands-on, con strumenti 
 - Visual Studio Code
 - Ambienti virtuali Python (`venv`)
 - Jupyter Notebook
-- Librerie scientifiche: NumPy, Pandas, Matplotlib
+- Librerie scientifiche: NumPy, Matplotlib, cenni a Pandas
 - Machine learning: PyTorch, Flower (per il Federated Learning)
 
 Il percorso è costruito in modo graduale, con problemi applicativi, esercizi progressivi e attività di coding orientate alla pratica. Spazio al confronto in aula e, dove possibile, a brevi contributi esterni o casi studio legati a contesti di ricerca e innovazione.
@@ -48,11 +48,11 @@ Aula prenotata 15 minuti prima dell'inizio della lezione per allestimento. L'ora
 | #  | Data         | Giorno | Aula  | Orario aula    | Lezione       | Argomento |
 |----|--------------|--------|-------|----------------|---------------|-----------|
 | 1  | 22/04/2026   | Mer    | 3.1.7 | 17:15 – 19:15  | 17:30 – 19:30 | Ambiente di lavoro, Jupyter Notebook, ambienti virtuali e introduzione a Python |
-| 2  | 23/04/2026   | Gio    | 3.1.5 | 17:15 – 19:15  | 17:30 – 19:30 | Python di base: tipi di dato, strutture di controllo, liste e funzioni |
-| 3  | 29/04/2026   | Mer    | 3.1.5 | 16:15 – 19:15  | 16:30 – 19:30 | Programmazione a oggetti essenziale, file e gestione degli errori |
-| 4  | 06/05/2026   | Mer    | 3.1.5 | 17:15 – 19:15  | 17:30 – 19:30 | NumPy, Matplotlib e introduzione pratica a Pandas |
-| 5  | 13/05/2026   | Mer    | 3.1.5 | 16:15 – 19:15  | 16:30 – 19:30 | Fondamenti di Machine Learning e introduzione a PyTorch |
-| 6  | 20/05/2026   | Mer    | 3.1.7 | 16:15 – 19:15  | 16:30 – 19:30 | PyTorch: primo modello, training loop e avvio del progetto finale |
+| 2  | 23/04/2026   | Gio    | 3.1.5 | 17:15 – 19:15  | 17:30 – 19:30 | Python di base: tipi di dato, strutture di controllo e prime liste |
+| 3  | 29/04/2026   | Mer    | 3.1.5 | 16:15 – 19:15  | 16:30 – 19:30 | Stringhe, liste, cicli, input, funzioni e primi moduli |
+| 4  | 06/05/2026   | Mer    | 3.1.5 | 17:15 – 19:15  | 17:30 – 19:30 | Dizionari, errori, file di testo e classi |
+| 5  | 13/05/2026   | Mer    | 3.1.5 | 16:15 – 19:15  | 16:30 – 19:30 | Ereditarieta e classi |
+| 6  | 20/05/2026   | Mer    | 3.1.7 | 16:15 – 19:15  | 16:30 – 19:30 | NumPy e Matplotlib con immagini; fondamenti di Machine Learning |
 | 7  | 27/05/2026   | Mer    | 3.1.5 | 16:15 – 19:15  | 16:30 – 19:30 | Neural Networks con PyTorch e classificazione di immagini |
 | 8  | 28/05/2026   | Gio    | 3.1.5 | 17:15 – 19:15  | 17:30 – 19:30 | Introduzione al Secure Federated Learning con Flower |
 | 9  | 03/06/2026   | Mer    | 3.1.5 | 17:15 – 19:15  | 17:30 – 19:30 | Laboratorio finale e presentazione dei progetti |

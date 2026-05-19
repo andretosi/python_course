@@ -17,6 +17,10 @@ Per informazioni su obiettivi, programma, aule e calendario vedi **[CORSO_INFO.m
   - [Python Course - Lezione 3 - Esercizi.md](md_lessons/Python%20Course%20-%20Lezione%203%20-%20Esercizi.md)
   - [Python Course - Lezione 4.md](md_lessons/Python%20Course%20-%20Lezione%204.md)
   - [Python Course - Lezione 4 - Esercizi.md](md_lessons/Python%20Course%20-%20Lezione%204%20-%20Esercizi.md)
+  - [Python Course - Lezione 5.md](md_lessons/Python%20Course%20-%20Lezione%205.md)
+  - [Python Course - Lezione 5 - Esercizi.md](md_lessons/Python%20Course%20-%20Lezione%205%20-%20Esercizi.md)
+  - [Python Course - Lezione 6.md](md_lessons/Python%20Course%20-%20Lezione%206.md)
+  - [Python Course - Lezione 6 - Esercizi.md](md_lessons/Python%20Course%20-%20Lezione%206%20-%20Esercizi.md)
   - `Python Installation Guide.pdf`
 - [lesson_code/](lesson_code/) – esempi testati, script di verifica e soluzioni eseguibili per le lezioni
 - [anni_precedenti/](anni_precedenti/) – materiali degli anni accademici passati

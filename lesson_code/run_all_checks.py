@@ -301,11 +301,220 @@ def test_lesson_4() -> None:
     )
 
 
+def test_lesson_5() -> None:
+    examples = ROOT / "lesson_code" / "lezione_5" / "esempi"
+    solutions = ROOT / "lesson_code" / "lezione_5" / "soluzioni"
+
+    run(
+        [PYTHON, str(examples / "ereditarieta_animali.py")],
+        expected_substrings=[
+            "Felix, 13 anni",
+            "Felix: meow",
+            "Bruno, 3 anni",
+            "Bruno: bau",
+            "Felix: bianco, nero",
+        ],
+    )
+    run(
+        [PYTHON, str(examples / "classe_felix.py")],
+        expected_substrings=["Felix dice: Meow", "10", "11"],
+    )
+
+    run(
+        [PYTHON, str(solutions / "problema_1_ereditarieta_gatti.py")],
+        expected_substrings=[
+            "Felix, 13 anni",
+            "Felix dice: Meow",
+            "Felix: bianco, nero",
+        ],
+    )
+    run(
+        [PYTHON, str(solutions / "problema_2_lista_animali.py")],
+        expected_substrings=[
+            "Felix, 13 anni",
+            "Felix: meow",
+            "Bruno, 3 anni",
+            "Bruno: bau",
+            "Nina, 1 anni",
+            "Nina: meow",
+        ],
+    )
+    run(
+        [PYTHON, str(solutions / "problema_3_registro_oggetti.py")],
+        expected_substrings=[
+            "Felix, anni 13, bianco e nero",
+            "Sky, anni 10, nero",
+            "Nina, anni 1, grigio",
+            "Gatti adulti: 2",
+            "Media anni: 8.0",
+        ],
+    )
+
+
+def test_lesson_6() -> None:
+    examples = ROOT / "lesson_code" / "lezione_6" / "esempi"
+    solutions = ROOT / "lesson_code" / "lezione_6" / "soluzioni"
+
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_path = Path(tmp)
+        run(
+            [PYTHON, str(examples / "grafico_assi.py")],
+            cwd=tmp_path,
+            expected_substrings=["Grafico salvato: grafico_assi.png"],
+        )
+        chart = tmp_path / "grafico_assi.png"
+        assert chart.is_file()
+        assert chart.stat().st_size > 0
+
+    run(
+        [PYTHON, str(examples / "matrice_rotazione.py")],
+        expected_substrings=[
+            "matrice originale",
+            "[[1 2 3]",
+            "np.rot90",
+            "[[3 6]",
+            "np.fliplr",
+            "[[3 2 1]",
+            "rotazione a mano",
+            "matrice geometrica di rotazione",
+            "punto ruotato",
+            "[-1.  2.]",
+        ],
+    )
+
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_path = Path(tmp)
+        run(
+            [PYTHON, str(examples / "immagine_come_array.py")],
+            cwd=tmp_path,
+            expected_substrings=[
+                "File: foto_aula_demo.png",
+                "shape: (120, 180, 3)",
+                "Immagine salvata: foto_aula_letta.png",
+            ],
+        )
+        assert (tmp_path / "foto_aula_letta.png").is_file()
+
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_path = Path(tmp)
+        run(
+            [PYTHON, str(examples / "trasformazioni_foto_aula.py")],
+            cwd=tmp_path,
+            expected_substrings=[
+                "shape originale: (120, 180, 3)",
+                "shape ritaglio: (60, 90, 3)",
+                "shape ruotata: (180, 120, 3)",
+                "Immagine salvata: foto_aula_trasformazioni.png",
+            ],
+        )
+        assert (tmp_path / "foto_aula_trasformazioni.png").is_file()
+
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_path = Path(tmp)
+        run(
+            [PYTHON, str(examples / "canali_rgb.py")],
+            cwd=tmp_path,
+            expected_substrings=[
+                "Canale rosso medio:",
+                "Canale verde medio:",
+                "Canale blu medio:",
+                "Immagine salvata: foto_aula_canali.png",
+            ],
+        )
+        assert (tmp_path / "foto_aula_canali.png").is_file()
+
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_path = Path(tmp)
+        run(
+            [PYTHON, str(examples / "normalizzazione_ml.py")],
+            cwd=tmp_path,
+            expected_substrings=[
+                "shape RGB: (120, 180, 3)",
+                "shape grigio: (120, 180)",
+                "shape batch: (1, 120, 180)",
+                "shape feature vector: (1, 21600)",
+                "Immagine salvata: foto_aula_grigio.png",
+            ],
+        )
+        assert (tmp_path / "foto_aula_grigio.png").is_file()
+
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_path = Path(tmp)
+        run(
+            [PYTHON, str(solutions / "problema_1_grafico_assi.py")],
+            cwd=tmp_path,
+            expected_substrings=["Grafico salvato: grafico_presenze.png"],
+        )
+        assert (tmp_path / "grafico_presenze.png").is_file()
+
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_path = Path(tmp)
+        run(
+            [PYTHON, str(solutions / "problema_2_leggi_foto_aula.py")],
+            cwd=tmp_path,
+            expected_substrings=[
+                "File: foto_aula_demo.png",
+                "shape: (120, 180, 3)",
+                "Immagine salvata: foto_aula_controllo.png",
+            ],
+        )
+        assert (tmp_path / "foto_aula_controllo.png").is_file()
+
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_path = Path(tmp)
+        run(
+            [PYTHON, str(solutions / "problema_3_ritaglia_ruota_foto.py")],
+            cwd=tmp_path,
+            expected_substrings=[
+                "matrice originale",
+                "np.rot90",
+                "[[3 6]",
+                "np.fliplr",
+                "[[3 2 1]",
+                "rotazione a mano",
+                "shape originale: (120, 180, 3)",
+                "shape ritaglio: (60, 90, 3)",
+                "shape ruotata: (90, 60, 3)",
+                "Immagine salvata: foto_aula_ritaglio_ruotato.png",
+            ],
+        )
+        assert (tmp_path / "foto_aula_ritaglio_ruotato.png").is_file()
+
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_path = Path(tmp)
+        run(
+            [PYTHON, str(solutions / "problema_4_colori_luminosita.py")],
+            cwd=tmp_path,
+            expected_substrings=[
+                "Canale rosso medio:",
+                "Canale verde medio:",
+                "Canale blu medio:",
+                "Immagine salvata: foto_aula_colori.png",
+            ],
+        )
+        assert (tmp_path / "foto_aula_colori.png").is_file()
+
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_path = Path(tmp)
+        run(
+            [PYTHON, str(solutions / "problema_5_griglia_trasformazioni.py")],
+            cwd=tmp_path,
+            expected_substrings=[
+                "shape originale: (120, 180, 3)",
+                "shape grigio: (120, 180)",
+                "Immagine salvata: foto_aula_griglia.png",
+            ],
+        )
+        assert (tmp_path / "foto_aula_griglia.png").is_file()
+
+
 def main() -> None:
     test_lesson_1()
     test_lesson_2()
     test_lesson_3()
     test_lesson_4()
+    test_lesson_5()
+    test_lesson_6()
     print("All lesson checks passed.")
 
 

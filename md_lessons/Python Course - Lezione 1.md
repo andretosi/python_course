@@ -1,223 +1,121 @@
 # Lezione 1 - Introduzione a Python, strumenti di lavoro e ambiente
 
-## Indice
-- [Lezione 1 - Introduzione a Python, strumenti di lavoro e ambiente](#lezione-1---introduzione-a-python-strumenti-di-lavoro-e-ambiente)
-  - [Indice](#indice)
-  - [Obiettivi della lezione](#obiettivi-della-lezione)
-  - [Cos'e Python](#cose-python)
-  - [Sistema operativo, file e cartelle](#sistema-operativo-file-e-cartelle)
-    - [Percorsi assoluti e relativi](#percorsi-assoluti-e-relativi)
-    - [Comandi essenziali](#comandi-essenziali)
-  - [IDE](#ide)
-  - [Jupyter Notebook](#jupyter-notebook)
-  - [Ambienti virtuali](#ambienti-virtuali)
-  - [Installazione e verifica degli strumenti](#installazione-e-verifica-degli-strumenti)
-  - [Esercizi](#esercizi)
-  - [Culture Pill / Esterni](#culture-pill--esterni)
+**Martedì 10 novembre 2026, 17:30–19:30 · Passion in Action, Politecnico di Milano**
 
----
+Prima di partire, apri la [guida di installazione (PDF)](Python%20Installation%20Guide.pdf). Se hai già fatto il setup, tieni a portata di mano la cartella del laboratorio.
 
-## Obiettivi della lezione
+## Cosa facciamo oggi
 
-Al termine della lezione:
-- conoscere il ruolo di Python nel corso
-- distinguere file, cartelle e percorsi
-- sapere che cos'e un IDE
-- avviare e usare Jupyter Notebook a livello base
-- capire a cosa servono gli ambienti virtuali
+Alla fine della lezione dovresti riuscire a orientarti tra file e cartelle, aprire una cartella in VS Code, eseguire uno script e lanciare una cella Jupyter con il Python del tuo progetto.
 
----
+| Orario | Attività | Risultato da vedere |
+| --- | --- | --- |
+| 17:30–17:40 | Presentazione del corso, primo calcolo in Python e controllo rapido degli strumenti | Ognuno sa quale terminale usare e riconosce il prompt di Python |
+| 17:40–18:00 | File, cartelle e percorsi. Demo e prova breve | Ognuno sa dov’è e trova un file con un percorso relativo |
+| 18:00–18:20 | Primo script in VS Code. Esecuzione dal terminale e dal pulsante Run | Il programma stampa testo e un numero |
+| 18:20–18:30 | Pausa e recupero per chi sta ancora configurando | Si riparte dal primo controllo che manca |
+| 18:30–18:50 | Ambiente virtuale, pip e notebook. Demo completa | Il notebook usa il kernel di .venv e mostra un risultato |
+| 18:50–19:20 | Esercizio autonomo della scheda | Uno script e un notebook con due risultati verificabili |
+| 19:20–19:30 | Correzione, domande e salvataggio dei file | Tutti sanno come riaprire il laboratorio |
 
-## Cos'e Python
+Se il download di Ubuntu o di **ipykernel** rallenta l’aula, teniamo lo stesso ordine. Facciamo la demo dal computer del docente, poi chi ha il setup pronto prova il notebook. Gli altri completano la parte `.py` e riprendono il notebook dal punto indicato nella guida.
 
-Python e un linguaggio di programmazione molto usato in:
-- automazione
-- analisi dati
-- machine learning
-- ricerca scientifica
+## Che cos’è Python
 
-Caratteristiche utili in questo corso:
-- sintassi leggibile
-- grande disponibilita di librerie
-- buon supporto sia da terminale sia in notebook
+Immagina di ricevere un file con le misure raccolte in laboratorio. Vuoi calcolare la media e rifare lo stesso calcolo ogni volta che arrivano nuove misure. Un programma mette per iscritto i passaggi che il computer deve eseguire. **Python è uno dei linguaggi con cui puoi scrivere quelle istruzioni.**
 
-Nel corso Python verra usato in tre modi principali:
-- file `.py`
-- terminale
-- Jupyter Notebook
+Quando installi Python, installi anche un **interprete**, cioè il programma che esegue il codice. Puoi passargli un file `.py` oppure scrivere un’istruzione alla volta e vedere subito cosa succede. [Introduzione al linguaggio nella documentazione Python](https://docs.python.org/3/tutorial/appetite.html).
 
----
+## Perché usiamo Python in questo corso
 
-## Sistema operativo, file e cartelle
+Si parte con poche righe, che possiamo leggere ed eseguire insieme in aula. Quando il problema cresce, possiamo usare librerie già pronte. Per esempio, possiamo leggere un file di misure, trasformarlo in un grafico e ripetere l’analisi su un altro file senza riscrivere il programma. [Applicazioni di Python](https://www.python.org/about/apps/).
 
-Un sistema operativo gestisce:
-- programmi
-- memoria
-- file
-- cartelle
-- dispositivi
+Questo ci permette di fare un percorso continuo. Oggi eseguiamo un primo script e un notebook. Poi usiamo lo stesso linguaggio per analizzare dati e immagini, addestrare i primi modelli e capire come più gruppi possono contribuire a un addestramento quando i dati restano presso chi li ha raccolti. [Scheda ufficiale del corso e calendario](https://www.polimi.it/formazione/passion-in-action/dettaglio/python-from-fundamentals-to-ml-neural-networks-and-secure-federated-learning-1).
 
-Quando si lavora con Python e importante capire dove si trovano i file e come raggiungerli.
+## Dove scriviamo e dove vediamo il risultato
 
-Esempi di elementi comuni:
-- file: `scatola.py`, `macedonia.txt`, `appunti.txt`
-- cartelle: `python_course`, `md_lessons`, `lezione1_lab`
+| Strumento | A cosa serve oggi |
+| --- | --- |
+| **Terminale** | Vedere in quale cartella siamo, trovare un file e avviare Python. |
+| **VS Code** | Aprire la cartella del laboratorio, scrivere e salvare il codice, poi avviarlo. |
+| **Notebook Jupyter** | Alternare spiegazioni, codice e risultati, eseguendo una cella alla volta. |
 
-### Percorsi assoluti e relativi
+Nel terminale digita `python3` su Ubuntu/WSL, macOS o Linux, oppure `py` in PowerShell. Quando compare `>>>` sei dentro Python. Scrivi `7 * 6` e premi Invio. Il risultato è `42`. Scrivi `exit()` per tornare al terminale. Nella seconda demo faremo lo stesso calcolo da un file usando `print(7 * 6)` per mostrare il risultato.
 
-Un percorso assoluto indica la posizione completa di un file o cartella.
+## Demo 1 · File, cartelle e percorsi
 
-Esempio:
-```bash
-/home/nome_utente/python_course
-```
+Un percorso **assoluto** parte dalla radice e indica il posto per intero. Due esempi sono `/home/andrea/lezione1_lab` in Ubuntu e `C:\Users\Andrea\lezione1_lab` su Windows. Un percorso **relativo** parte dalla cartella in cui ti trovi. Il punto `.` è la cartella corrente, `..` è quella sopra.
 
-Un percorso relativo dipende dalla cartella corrente.
+Apriamo `lezione1_lab` in VS Code e, da **Terminal → New Terminal**, verifichiamo il punto di partenza con `pwd`. Se il percorso non finisce con `lezione1_lab`, apri quella cartella prima di continuare.
 
-Esempi:
-```bash
-.          # cartella corrente
-..         # cartella superiore
-./file.py  # file nella cartella corrente
-```
+**Ubuntu/WSL, macOS e Linux**
 
-### Comandi essenziali
-
-```bash
+~~~bash
 pwd
+mkdir -p demo
+cd demo
+echo "gatto" > promemoria.txt
 ls
-cd nome_cartella
-mkdir nuova_cartella
-touch file.py
-```
+cat ./promemoria.txt
+cd ..
+ls
+~~~
 
-Significato:
-- `pwd` mostra dove ci si trova
-- `ls` mostra file e cartelle
-- `cd` cambia cartella
-- `mkdir` crea una cartella
-- `touch` crea un file vuoto
+**Windows con PowerShell**
 
----
+~~~powershell
+Get-Location
+New-Item -ItemType Directory -Path demo
+Set-Location demo
+Set-Content -Path promemoria.txt -Value "gatto"
+Get-ChildItem
+Get-Content .\promemoria.txt
+Set-Location ..
+Get-ChildItem
+~~~
 
-## IDE
+Dentro **demo** vediamo `promemoria.txt` e leggiamo **gatto**. Tornati su, vediamo **demo**. Il file è rimasto nella sottocartella. Prova a raggiungerlo da qui con `cat demo/promemoria.txt` o `Get-Content .\demo\promemoria.txt`. Le virgolette aiutano quando un nome contiene spazi.
 
-IDE significa `Integrated Development Environment`.
+Ora fai la [prova breve sui percorsi](Python%20Course%20-%20Lezione%201%20-%20Esercizi.md#prova-breve--percorsi) prima di passare allo script.
 
-Un IDE aiuta a:
-- scrivere codice
-- eseguirlo
-- organizzare i file
-- usare strumenti aggiuntivi come terminale, estensioni e notebook
+## Demo 2 · Il primo file .py
 
-Nel corso viene usato **Visual Studio Code**.
+Nell’Explorer di VS Code crea `demo.py` nella cartella `lezione1_lab`, allo stesso livello di **demo**. Scrivi e salva.
 
-Vantaggi pratici:
-- supporto per Python
-- integrazione con il terminale
-- supporto per notebook Jupyter
-- estensioni facili da installare
+~~~python
+print("Nella scatola c'è un limone.")
+print(7 * 6)
+~~~
 
-Per aprire una cartella in VS Code:
-```bash
-code .
-```
+- `print(...)` mostra quello che gli mettiamo tra parentesi. Le virgolette indicano testo.
+- `7 * 6` è un calcolo. Prova a prevedere cosa comparirebbe se scrivessi `print("7 * 6")`, poi eseguilo.
+- Per eseguire il file dal terminale usa `python3 demo.py` su Ubuntu/WSL, macOS o Linux e `py demo.py` in PowerShell. Poi usa anche **Run Python File** in alto a destra. Dovresti vedere la frase e **42** in entrambi i casi.
 
----
+Se non parte, controlla il nome del file e il percorso del terminale. Per mostrare come si legge un errore, nella demo togli una parentesi di chiusura, salva ed esegui. Cerca l’ultima riga del messaggio e il numero di riga, rimetti la parentesi e riprova.
 
-## Jupyter Notebook
+## Demo 3 · Ambiente virtuale e notebook
 
-Jupyter Notebook permette di lavorare con:
-- celle di codice
-- celle di testo
-- output immediato
+Un **venv** è un ambiente per un singolo progetto. Tiene separati i pacchetti che installiamo. `pip` è lo strumento che installa quei pacchetti. Usiamo `python -m pip` per sapere quale Python sta usando pip.
 
-E utile per:
-- fare prove rapide
-- spiegare passaggi con testo e codice insieme
-- costruire piccoli esperimenti
+1. Crea `.venv` in `lezione1_lab` con `python3 -m venv .venv` o `py -m venv .venv` in PowerShell. Se esiste già e funziona, riusalo.
+2. In Ubuntu/WSL, macOS o Linux attivalo con **source .venv/bin/activate** e verifica con `python -m pip --version`. In PowerShell esegui `.\.venv\Scripts\python.exe -m pip --version`. Indica il percorso in output e cerca `.venv`.
+3. Se manca **ipykernel**, installalo con `python -m pip install ipykernel` nel venv attivo o `.\.venv\Scripts\python.exe -m pip install ipykernel` in PowerShell. In VS Code scegli il venv da **Python: Select Interpreter**.
+4. Crea `demo.ipynb` e in alto a destra scegli **Select Kernel → Python Environments → .venv**. Il **kernel** è il processo Python che esegue le celle. Se serve, segui i passaggi illustrati nella sezione **Ambiente virtuale e Jupyter** della [guida di installazione (PDF)](Python%20Installation%20Guide.pdf).
+5. Aggiungi una cella **Markdown** con `## Macedonia`. Aggiungi una cella **Code** con il codice qui sotto. Esegui con **Shift+Invio** e salva.
 
-Flusso tipico:
-1. creare o aprire un notebook
-2. scrivere codice in una cella
-3. eseguire la cella
-4. leggere l'output sotto la cella
+~~~python
+print("Porzioni di macedonia")
+print(3 * 5)
+~~~
 
-Comando di avvio:
-```bash
-jupyter notebook
-```
+Dovresti vedere il titolo formattato e, sotto la cella di codice, **Porzioni di macedonia** e **15**. Modifica il **5** in **6**. L’output cambia a **18** quando riesegui la cella.
 
----
+## Esercizio autonomo e chiusura
 
-## Ambienti virtuali
+- [ ] Completa la [scheda di laboratorio](Python%20Course%20-%20Lezione%201%20-%20Esercizi.md#esercizio-autonomo--scatole-di-campioni) dopo le tre demo.
+- [ ] Riavvia il kernel e usa **Run All** per verificare il notebook dall’inizio.
+- [ ] Salva `.py` e `.ipynb` e controlla che siano nella cartella giusta.
 
-Un ambiente virtuale isola i pacchetti Python di un progetto da quelli di altri progetti.
+Se avanza tempo, nell’interprete interattivo prova `import this`. Stampa lo *Zen of Python*. Cerca la riga sulla leggibilità e torna al file appena scritto per vedere se si capisce al primo sguardo.
 
-Questo evita conflitti tra versioni diverse delle librerie.
-
-Creazione di un ambiente virtuale:
-```bash
-python3 -m venv .venv
-```
-
-Attivazione su Linux / macOS:
-```bash
-source .venv/bin/activate
-```
-
-Installazione di un pacchetto dentro l'ambiente attivo:
-```bash
-pip install notebook
-```
-
-Disattivazione:
-```bash
-deactivate
-```
-
----
-
-## Installazione e verifica degli strumenti
-
-Guida di supporto:
-- [Python Installation Guide.pdf](Python%20Installation%20Guide.pdf)
-
-Comandi utili di verifica:
-```bash
-python3 -V
-pip -V
-jupyter notebook
-```
-
-Controlli pratici svolti:
-- apertura di VS Code
-- test del terminale
-- attivazione di un ambiente virtuale
-- installazione e avvio di Jupyter Notebook
-
----
-
-## Esercizi
-
-Gli esercizi della lezione 1 sono raccolti in:
-- [Python Course - Lezione 1 - Esercizi.md](Python%20Course%20-%20Lezione%201%20-%20Esercizi.md)
-
-Le soluzioni eseguibili sono raccolte in:
-- `lesson_code/lezione_1/soluzioni/`
-
----
-
-## Culture Pill / Esterni
-
-Strumenti utili:
-- documentazione ufficiale Python
-- documentazione di VS Code
-- guida Jupyter
-
-Comando utile:
-```bash
-python3
-```
-
-Apre l'interprete interattivo di Python.
+Nella [lezione 2](Python%20Course%20-%20Lezione%202.md) ripartiremo dallo script per dare nomi ai dati e prendere le prime decisioni con il codice.

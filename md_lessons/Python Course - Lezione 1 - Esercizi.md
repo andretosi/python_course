@@ -1,171 +1,69 @@
-# Lezione 1 – Esercizi guidati
+# Lezione 1 – Scheda di laboratorio
 
-Questi esercizi servono a verificare che l'ambiente di lavoro sia davvero pronto. Fai un esercizio alla volta, controlla subito il risultato e non andare avanti se qualcosa non torna.
+Lavora nella cartella `lezione1_lab` che hai aperto in VS Code. Usa il terminale del tuo percorso. Su Windows con WSL è **Ubuntu**. Su Windows senza WSL è **PowerShell**. Prima di ogni prova fai la demo corrispondente della [lezione](Python%20Course%20-%20Lezione%201.md).
 
-## Regole
-- Lavora in una cartella nuova, per esempio `lezione1_lab`.
-- Se usi Windows, esegui tutto dentro WSL/Ubuntu.
-- Salvo dove indicato, evita `sudo`.
-- Ogni esercizio ha un **check**: se quel check passa, sei sulla strada giusta.
-- Le soluzioni eseguibili sono raccolte in `lesson_code/lezione_1/soluzioni/`.
+## Prova breve · Percorsi
 
-## Esercizio 1 – Cartelle e percorsi
+**5 minuti, dopo la demo 1.**
 
-Consegna
-- Crea una cartella `lezione1_lab`.
-- Dentro crea due sottocartelle: `appunti` e `prove`.
-- Entra nella cartella `appunti`.
+- [ ] Dentro `lezione1_lab` crea una cartella **prove** e aprila dal terminale.
+- [ ] Crea `lista.txt` con una riga che dice **limone**. Leggilo dal terminale.
+- [ ] Torna su di una cartella. Leggi di nuovo lo stesso file usando il percorso relativo da `lezione1_lab`.
 
-Comandi suggeriti
-- `mkdir`
-- `cd`
-- `pwd`
-- `ls`
+Alla fine il terminale deve essere in `lezione1_lab`. L’ultimo comando deve stampare **limone**.
 
-Check
-```bash
-pwd
-ls ..
-```
+## Esercizio autonomo · Scatole di campioni
 
-Risultato atteso
-- `pwd` deve terminare con `/lezione1_lab/appunti`
-- `ls ..` deve mostrare almeno `appunti` e `prove`
+**25–30 minuti, dopo le tre demo.** In un piccolo laboratorio ci sono 4 scatole con 8 provette ciascuna. Prepariamo uno script da rilanciare e un notebook che faccia vedere il calcolo.
 
----
+1. [ ] Dentro `lezione1_lab` crea una sottocartella **campioni**. Nel terminale entra in **campioni** e controlla il percorso.
+2. [ ] Crea `provette.py` in **campioni**. Deve stampare **Provette da etichettare** e, sulla riga dopo, il prodotto di **4** per **8**.
+3. [ ] Esegui lo script dal terminale. Poi eseguilo dal triangolo **Run Python File** in VS Code e confronta l’output.
+4. [ ] Crea `campioni.ipynb` nella stessa sottocartella. Usa il kernel di `.venv` che hai già preparato in `lezione1_lab`. Aggiungi una cella Markdown con il titolo **Provette per il laboratorio** e una cella di codice che mostri il totale.
+5. [ ] Esegui le celle, poi modifica solo il numero di scatole nel notebook, da **4** a **6**, e riesegui la cella di codice. Salva entrambi i file.
 
-## Esercizio 2 – File, copia, rinomina, cancellazione
+**Risultato atteso.** Lo script stampa **32**. Il notebook mostra il titolo e stampa prima **32**, poi **48** quando cambi il numero di scatole. Se riavvii il kernel e usi **Run All**, il notebook deve tornare a mostrare **48**.
 
-Consegna
-- Dentro `appunti` crea un file `note.txt`.
-- Scrivi nel file queste due righe:
-  - `gatto`
-  - `limone`
-- Crea una copia chiamata `note_backup.txt`.
-- Rinomina `note.txt` in `note_importanti.txt`.
-- Cancella il backup.
+Se Jupyter è ancora in installazione, completa i punti 1–3. Riprendi dal 4 appena **ipykernel** è pronto. Per i passaggi, vedi **Ambiente virtuale e Jupyter** nella [guida di installazione (PDF)](Python%20Installation%20Guide.pdf).
 
-Comandi suggeriti
-- `touch`
-- `echo`
-- `cat`
-- `cp`
-- `mv`
-- `rm`
+<details>
+<summary>Soluzioni da aprire dopo il tentativo</summary>
 
-Check
-```bash
-ls
-cat note_importanti.txt
-```
+**Prova breve.** Parti da `lezione1_lab`.
 
-Risultato atteso
-- `ls` deve mostrare `note_importanti.txt`
-- `ls` non deve più mostrare `note_backup.txt`
-- `cat note_importanti.txt` deve stampare esattamente le due righe che hai scritto
+Ubuntu/WSL, macOS o Linux
 
----
+~~~bash
+mkdir prove
+cd prove
+echo "limone" > lista.txt
+cat lista.txt
+cd ..
+cat prove/lista.txt
+~~~
 
-## Esercizio 3 – Primo script Python
+PowerShell
 
-Consegna
-- Torna nella cartella `lezione1_lab`.
-- Crea un file `hello.py`.
-- Il programma deve stampare:
-  - `Ciao Python`
-  - `Nella scatola c'e un limone.`
-  - il risultato di `7 * 6`
+~~~powershell
+New-Item -ItemType Directory -Path prove
+Set-Location prove
+Set-Content -Path lista.txt -Value "limone"
+Get-Content lista.txt
+Set-Location ..
+Get-Content .\prove\lista.txt
+~~~
 
-Check
-```bash
-python3 hello.py
-```
+**Scatole di campioni.** Crea **campioni** dall’Explorer di VS Code e usa `cd campioni` per entrarci dal terminale. Questo è il contenuto di `provette.py`.
 
-Risultato atteso
-- L'output deve avere 3 righe
-- L'ultima riga deve essere `42`
-- Il programma deve partire senza errori
+~~~python
+print("Provette da etichettare")
+print(4 * 8)
+~~~
 
----
+Lancialo con `python3 provette.py` su Ubuntu/WSL, macOS o Linux oppure `py provette.py` in PowerShell. Se il venv è attivo puoi usare `python provette.py`.
 
-## Esercizio 4 – Visual Studio Code
+Nel notebook seleziona `.venv`, crea la cella Markdown con `## Provette per il laboratorio` e scrivi **print(4 * 8)** nella cella di codice. Esegui entrambe, poi sostituisci la riga di codice con **print(6 * 8)** ed esegui di nuovo.
 
-Consegna
-- Apri `lezione1_lab` con `code .`
-- Apri `hello.py` in VS Code
-- Eseguilo da VS Code, non dal terminale esterno
+</details>
 
-Check
-- In VS Code devi vedere l'output del programma senza errori
-- Devi riuscire ad aprire anche il terminale integrato
-
-Risultato atteso
-- Lo script produce lo stesso output visto nell'esercizio 3
-- Riesci a passare da editor a terminale senza uscire da VS Code
-
----
-
-## Esercizio 5 – Ambiente virtuale
-
-Consegna
-- Sempre dentro `lezione1_lab`, crea un ambiente virtuale chiamato `.venv`
-- Attivalo
-- Installa `notebook` e `ipykernel`
-
-Comandi suggeriti
-- `python3 -m venv .venv`
-- `source .venv/bin/activate`
-- `pip install notebook ipykernel`
-
-Per chi usa PowerShell:
-```powershell
-.venv\Scripts\Activate.ps1
-```
-
-Check
-```bash
-ls -a
-pip -V
-```
-
-Risultato atteso
-- `ls -a` deve mostrare la cartella `.venv`
-- Il prompt del terminale deve iniziare con `(.venv)`
-- `pip -V` deve contenere un percorso che passa dentro `.venv`
-
----
-
-## Esercizio 6 – Primo notebook
-
-Consegna
-- Con il venv attivo, crea un notebook chiamato `test_notebook.ipynb`
-- Aggiungi:
-  - una cella Markdown con titolo `## Test notebook`
-  - una cella di codice che stampi `Notebook ok`
-  - una seconda cella di codice che calcoli `3 * 5`
-- Esegui tutte le celle
-
-Check
-- Il notebook si apre senza errori
-- Il kernel selezionato è quello del tuo `.venv`
-- Le celle producono output
-
-Risultato atteso
-- Devi vedere `Notebook ok`
-- Devi vedere il risultato `15`
-- Se riapri il notebook, il file `test_notebook.ipynb` deve essere presente dentro `lezione1_lab`
-
----
-
-## Check finale
-
-Se riesci a fare queste cose sei a cavallo:
-- creare cartelle e file dal terminale
-- copiare, rinominare e cancellare file
-- lanciare `python3 hello.py`
-- aprire la cartella in VS Code con `code .`
-- creare e attivare `.venv`
-- installare un pacchetto con `pip`
-- eseguire almeno una cella in un notebook col kernel corretto
-
-Se qualcosa non torna, ripeti il check prima di passare all'esercizio successivo.
+Altri esempi della prima lezione sono nella [cartella delle soluzioni delle edizioni precedenti](../lesson_code/lezione_1/soluzioni/).

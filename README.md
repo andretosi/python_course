@@ -4,6 +4,8 @@ Materiali del corso **"Python: from fundamentals to ML, neural networks, and sec
 
 Per iniziare, apri la **[guida di installazione (PDF)](md_lessons/Python%20Installation%20Guide.pdf)** e la **[Lezione 1](md_lessons/Python%20Course%20-%20Lezione%201.md)**.
 
+Per il laboratorio serve **Ubuntu 26.04 LTS** (su Windows con **WSL 2**) oppure **macOS**, con l’ultima versione stabile della serie **Python 3.13**.
+
 ## Calendario autunnale 2026
 
 Gli incontri si tengono al Politecnico di Milano, sede Milano Città Studi. Per le aule e le eventuali variazioni, segui le comunicazioni del corso. [Scheda ufficiale del Politecnico di Milano](https://www.polimi.it/formazione/passion-in-action/dettaglio/python-from-fundamentals-to-ml-neural-networks-and-secure-federated-learning-1).
@@ -38,6 +40,7 @@ Gli incontri si tengono al Politecnico di Milano, sede Milano Città Studi. Per 
   - [Python Course - Lezione 6 - Esercizi.md](md_lessons/Python%20Course%20-%20Lezione%206%20-%20Esercizi.md)
 - [lesson_code/](lesson_code/) – esempi testati, script di verifica e soluzioni eseguibili per le lezioni
 - [anni_precedenti/](anni_precedenti/) – materiali degli anni accademici passati
+  - [Guida di installazione originale (PDF, archivio)](anni_precedenti/2025-2026/old_lessons/Python%20Installation%20Guide.pdf)
 
 ## Contatti
 

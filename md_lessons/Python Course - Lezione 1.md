@@ -2,7 +2,7 @@
 
 **Martedì 10 novembre 2026, 17:30–19:30 · Passion in Action, Politecnico di Milano**
 
-Prima di partire, apri la [guida di installazione (PDF)](Python%20Installation%20Guide.pdf). Se hai già fatto il setup, tieni a portata di mano la cartella del laboratorio.
+Prima di partire, apri la [guida di installazione (PDF)](Python%20Installation%20Guide.pdf). Per il laboratorio usa Ubuntu 26.04 LTS (con WSL 2 se hai Windows) o macOS, con l’ultima versione stabile di Python 3.13.
 
 ## Cosa facciamo oggi
 
@@ -40,15 +40,13 @@ Questo ci permette di fare un percorso continuo. Oggi eseguiamo un primo script 
 | **VS Code** | Aprire la cartella del laboratorio, scrivere e salvare il codice, poi avviarlo. |
 | **Notebook Jupyter** | Alternare spiegazioni, codice e risultati, eseguendo una cella alla volta. |
 
-Nel terminale digita `python3` su Ubuntu/WSL, macOS o Linux, oppure `py` in PowerShell. Quando compare `>>>` sei dentro Python. Scrivi `7 * 6` e premi Invio. Il risultato è `42`. Scrivi `exit()` per tornare al terminale. Nella seconda demo faremo lo stesso calcolo da un file usando `print(7 * 6)` per mostrare il risultato.
+Nel terminale di Ubuntu o macOS digita `python3.13`. Quando compare `>>>` sei dentro Python. Scrivi `7 * 6` e premi Invio. Il risultato è `42`. Scrivi `exit()` per tornare al terminale. Nella seconda demo faremo lo stesso calcolo da un file usando `print(7 * 6)` per mostrare il risultato.
 
 ## Demo 1 · File, cartelle e percorsi
 
-Un percorso **assoluto** parte dalla radice e indica il posto per intero. Due esempi sono `/home/andrea/lezione1_lab` in Ubuntu e `C:\Users\Andrea\lezione1_lab` su Windows. Un percorso **relativo** parte dalla cartella in cui ti trovi. Il punto `.` è la cartella corrente, `..` è quella sopra.
+Un percorso **assoluto** parte dalla radice e indica il posto per intero. Due esempi sono `/home/andrea/lezione1_lab` su Ubuntu e `/Users/andrea/lezione1_lab` su macOS. Un percorso **relativo** parte dalla cartella in cui ti trovi. Il punto `.` è la cartella corrente, `..` è quella sopra.
 
 Apriamo `lezione1_lab` in VS Code e, da **Terminal → New Terminal**, verifichiamo il punto di partenza con `pwd`. Se il percorso non finisce con `lezione1_lab`, apri quella cartella prima di continuare.
-
-**Ubuntu/WSL, macOS e Linux**
 
 ~~~bash
 pwd
@@ -61,20 +59,7 @@ cd ..
 ls
 ~~~
 
-**Windows con PowerShell**
-
-~~~powershell
-Get-Location
-New-Item -ItemType Directory -Path demo
-Set-Location demo
-Set-Content -Path promemoria.txt -Value "gatto"
-Get-ChildItem
-Get-Content .\promemoria.txt
-Set-Location ..
-Get-ChildItem
-~~~
-
-Dentro **demo** vediamo `promemoria.txt` e leggiamo **gatto**. Tornati su, vediamo **demo**. Il file è rimasto nella sottocartella. Prova a raggiungerlo da qui con `cat demo/promemoria.txt` o `Get-Content .\demo\promemoria.txt`. Le virgolette aiutano quando un nome contiene spazi.
+Dentro **demo** vediamo `promemoria.txt` e leggiamo **gatto**. Tornati su, vediamo **demo**. Il file è rimasto nella sottocartella. Prova a raggiungerlo da qui con `cat demo/promemoria.txt`. Le virgolette aiutano quando un nome contiene spazi.
 
 Ora fai la [prova breve sui percorsi](Python%20Course%20-%20Lezione%201%20-%20Esercizi.md#prova-breve--percorsi) prima di passare allo script.
 
@@ -89,7 +74,7 @@ print(7 * 6)
 
 - `print(...)` mostra quello che gli mettiamo tra parentesi. Le virgolette indicano testo.
 - `7 * 6` è un calcolo. Prova a prevedere cosa comparirebbe se scrivessi `print("7 * 6")`, poi eseguilo.
-- Per eseguire il file dal terminale usa `python3 demo.py` su Ubuntu/WSL, macOS o Linux e `py demo.py` in PowerShell. Poi usa anche **Run Python File** in alto a destra. Dovresti vedere la frase e **42** in entrambi i casi.
+- Per eseguire il file dal terminale usa `python3.13 demo.py`. Poi usa anche **Run Python File** in alto a destra. Dovresti vedere la frase e **42** in entrambi i casi.
 
 Se non parte, controlla il nome del file e il percorso del terminale. Per mostrare come si legge un errore, nella demo togli una parentesi di chiusura, salva ed esegui. Cerca l’ultima riga del messaggio e il numero di riga, rimetti la parentesi e riprova.
 
@@ -97,9 +82,9 @@ Se non parte, controlla il nome del file e il percorso del terminale. Per mostra
 
 Un **venv** è un ambiente per un singolo progetto. Tiene separati i pacchetti che installiamo. `pip` è lo strumento che installa quei pacchetti. Usiamo `python -m pip` per sapere quale Python sta usando pip.
 
-1. Crea `.venv` in `lezione1_lab` con `python3 -m venv .venv` o `py -m venv .venv` in PowerShell. Se esiste già e funziona, riusalo.
-2. In Ubuntu/WSL, macOS o Linux attivalo con **source .venv/bin/activate** e verifica con `python -m pip --version`. In PowerShell esegui `.\.venv\Scripts\python.exe -m pip --version`. Indica il percorso in output e cerca `.venv`.
-3. Se manca **ipykernel**, installalo con `python -m pip install ipykernel` nel venv attivo o `.\.venv\Scripts\python.exe -m pip install ipykernel` in PowerShell. In VS Code scegli il venv da **Python: Select Interpreter**.
+1. Crea `.venv` in `lezione1_lab` con `python3.13 -m venv .venv`. Se ne hai già uno, riusalo dopo aver verificato la versione di Python.
+2. Attiva il venv con `source .venv/bin/activate`. Controlla che `python --version` mostri la versione indicata nella guida e che `python -m pip --version` riporti un percorso dentro `.venv`.
+3. Se manca **ipykernel**, installalo con `python -m pip install ipykernel` nel venv attivo. In VS Code scegli il venv da **Python: Select Interpreter**.
 4. Crea `demo.ipynb` e in alto a destra scegli **Select Kernel → Python Environments → .venv**. Il **kernel** è il processo Python che esegue le celle. Se serve, segui i passaggi illustrati nella sezione **Ambiente virtuale e Jupyter** della [guida di installazione (PDF)](Python%20Installation%20Guide.pdf).
 5. Aggiungi una cella **Markdown** con `## Macedonia`. Aggiungi una cella **Code** con il codice qui sotto. Esegui con **Shift+Invio** e salva.
 

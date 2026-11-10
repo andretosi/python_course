@@ -1,6 +1,6 @@
 # Lezione 1 – Scheda di laboratorio
 
-Lavora nella cartella `lezione1_lab` che hai aperto in VS Code. Usa il terminale del tuo percorso. Su Windows con WSL è **Ubuntu**. Su Windows senza WSL è **PowerShell**. Prima di ogni prova fai la demo corrispondente della [lezione](Python%20Course%20-%20Lezione%201.md).
+Lavora nella cartella `lezione1_lab` che hai aperto in VS Code. Usa il terminale di **Ubuntu 26.04 LTS** o di **macOS**. Su Windows apri la cartella da Ubuntu in WSL 2. Prima di ogni prova fai la demo corrispondente della [lezione](Python%20Course%20-%20Lezione%201.md).
 
 ## Prova breve · Percorsi
 
@@ -31,8 +31,6 @@ Se Jupyter è ancora in installazione, completa i punti 1–3. Riprendi dal 4 ap
 
 **Prova breve.** Parti da `lezione1_lab`.
 
-Ubuntu/WSL, macOS o Linux
-
 ~~~bash
 mkdir prove
 cd prove
@@ -42,17 +40,6 @@ cd ..
 cat prove/lista.txt
 ~~~
 
-PowerShell
-
-~~~powershell
-New-Item -ItemType Directory -Path prove
-Set-Location prove
-Set-Content -Path lista.txt -Value "limone"
-Get-Content lista.txt
-Set-Location ..
-Get-Content .\prove\lista.txt
-~~~
-
 **Scatole di campioni.** Crea **campioni** dall’Explorer di VS Code e usa `cd campioni` per entrarci dal terminale. Questo è il contenuto di `provette.py`.
 
 ~~~python
@@ -60,7 +47,7 @@ print("Provette da etichettare")
 print(4 * 8)
 ~~~
 
-Lancialo con `python3 provette.py` su Ubuntu/WSL, macOS o Linux oppure `py provette.py` in PowerShell. Se il venv è attivo puoi usare `python provette.py`.
+Lancialo con `python3.13 provette.py`. Se il venv è attivo puoi usare `python provette.py`.
 
 Nel notebook seleziona `.venv`, crea la cella Markdown con `## Provette per il laboratorio` e scrivi **print(4 * 8)** nella cella di codice. Esegui entrambe, poi sostituisci la riga di codice con **print(6 * 8)** ed esegui di nuovo.
 

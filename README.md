@@ -1,13 +1,28 @@
 # Python Course – PoliMI Passion in Action
 
-Materiali del corso **"Python: from fundamentals to ML, neural networks, and secure federated learning"** (cod. 064943), tenuto da Andrea Tosi al Politecnico di Milano in collaborazione con la Biomedical Engineering Association (BEA), sotto la supervisione del Prof. Pietro Pinoli.
+Materiali del corso **"Python: from fundamentals to ML, neural networks, and secure federated learning"**, tenuto da Andrea Tosi al Politecnico di Milano sotto la supervisione del Prof. Pietro Pinoli.
 
-Per informazioni su obiettivi, programma, aule e calendario vedi **[CORSO_INFO.md](CORSO_INFO.md)**.
+Per iniziare, apri la **[guida di installazione (PDF)](md_lessons/Python%20Installation%20Guide.pdf)** e la **[Lezione 1](md_lessons/Python%20Course%20-%20Lezione%201.md)**.
+
+## Calendario autunnale 2026
+
+Gli incontri si tengono al Politecnico di Milano, sede Milano Città Studi. Per le aule e le eventuali variazioni, segui le comunicazioni del corso. [Scheda ufficiale del Politecnico di Milano](https://www.polimi.it/formazione/passion-in-action/dettaglio/python-from-fundamentals-to-ml-neural-networks-and-secure-federated-learning-1).
+
+| Incontro | Data | Orario |
+| --- | --- | --- |
+| 1 | Martedì 10 novembre 2026 | 17:30 - 19:30 |
+| 2 | Mercoledì 11 novembre 2026 | 17:30 - 19:30 |
+| 3 | Mercoledì 18 novembre 2026 | 17:30 - 19:30 |
+| 4 | Mercoledì 25 novembre 2026 | 16:30 - 19:30 |
+| 5 | Martedì 1 dicembre 2026 | 16:30 - 19:30 |
+| 6 | Mercoledì 2 dicembre 2026 | 17:30 - 19:30 |
+| 7 | Mercoledì 9 dicembre 2026 | 17:30 - 19:30 |
+| 8 | Martedì 15 dicembre 2026 | 17:30 - 19:30 |
 
 ## Struttura del repository
 
-- [CORSO_INFO.md](CORSO_INFO.md) – info corso, calendario e aule
-- [PROGRAMMA_AGGIORNATO.md](PROGRAMMA_AGGIORNATO.md) – distribuzione aggiornata degli argomenti in base al ritmo reale
+- [CORSO_INFO.md](CORSO_INFO.md) – informazioni e calendario dell’edizione di aprile–giugno 2026
+- [PROGRAMMA_AGGIORNATO.md](PROGRAMMA_AGGIORNATO.md) – distribuzione degli argomenti nell’edizione di aprile–giugno 2026
 - [md_lessons/](md_lessons/) – materiali delle lezioni in Markdown
   - [Python Course - Lezione 1.md](md_lessons/Python%20Course%20-%20Lezione%201.md)
   - [Python Course - Lezione 1 - Esercizi.md](md_lessons/Python%20Course%20-%20Lezione%201%20-%20Esercizi.md)
@@ -21,7 +36,6 @@ Per informazioni su obiettivi, programma, aule e calendario vedi **[CORSO_INFO.m
   - [Python Course - Lezione 5 - Esercizi.md](md_lessons/Python%20Course%20-%20Lezione%205%20-%20Esercizi.md)
   - [Python Course - Lezione 6.md](md_lessons/Python%20Course%20-%20Lezione%206.md)
   - [Python Course - Lezione 6 - Esercizi.md](md_lessons/Python%20Course%20-%20Lezione%206%20-%20Esercizi.md)
-  - `Python Installation Guide.pdf`
 - [lesson_code/](lesson_code/) – esempi testati, script di verifica e soluzioni eseguibili per le lezioni
 - [anni_precedenti/](anni_precedenti/) – materiali degli anni accademici passati
 

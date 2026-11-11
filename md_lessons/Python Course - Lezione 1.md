@@ -2,7 +2,7 @@
 
 **Martedì 10 novembre 2026, 17:30–19:30 · Passion in Action, Politecnico di Milano**
 
-Prima di partire, apri la [guida di installazione (PDF)](Python%20Installation%20Guide.pdf). Per il laboratorio usa Ubuntu 26.04 LTS (con WSL 2 se hai Windows) o macOS, con l’ultima versione stabile di Python 3.13.
+Prima di partire, apri la [guida di installazione (PDF)](Python%20Installation%20Guide.pdf) e segui il percorso del tuo sistema operativo. Per il laboratorio usa Ubuntu 26.04 LTS (con WSL 2 se hai Windows) o macOS, con Python 3.13.18. La guida si ferma a VS Code e alle estensioni; qui configuriamo l'ambiente virtuale e Jupyter.
 
 ## Cosa facciamo oggi
 
@@ -18,7 +18,7 @@ Alla fine della lezione dovresti riuscire a orientarti tra file e cartelle, apri
 | 18:50–19:20 | Esercizio autonomo della scheda | Uno script e un notebook con due risultati verificabili |
 | 19:20–19:30 | Correzione, domande e salvataggio dei file | Tutti sanno come riaprire il laboratorio |
 
-Se il download di Ubuntu o di **ipykernel** rallenta l’aula, teniamo lo stesso ordine. Facciamo la demo dal computer del docente, poi chi ha il setup pronto prova il notebook. Gli altri completano la parte `.py` e riprendono il notebook dal punto indicato nella guida.
+Se il download di Ubuntu o di **ipykernel** rallenta l’aula, teniamo lo stesso ordine. Facciamo la demo dal computer del docente, poi chi ha il setup pronto prova il notebook. Gli altri completano la parte `.py` e riprendono il notebook dalla demo su ambiente virtuale e Jupyter di questa lezione.
 
 ## Che cos’è Python
 

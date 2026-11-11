@@ -4,7 +4,9 @@ Materiali del corso **"Python: from fundamentals to ML, neural networks, and sec
 
 Per iniziare, apri la **[guida di installazione (PDF)](md_lessons/Python%20Installation%20Guide.pdf)** e la **[Lezione 1](md_lessons/Python%20Course%20-%20Lezione%201.md)**.
 
-Per il laboratorio serve **Ubuntu 26.04 LTS** (su Windows con **WSL 2**) oppure **macOS**, con l’ultima versione stabile della serie **Python 3.13**.
+Per il laboratorio serve **Ubuntu 26.04 LTS** (su Windows con **WSL 2**) oppure **macOS**, con **Python 3.13.18**, ultima versione stabile della serie 3.13 verificata l'11 novembre 2026. Usiamo lo stesso Python nei tre percorsi, installato separatamente da quello del sistema.
+
+La guida contiene tre sezioni indipendenti: **Windows + WSL**, **Ubuntu** e **macOS**. Ogni percorso parte dai controlli iniziali e termina con **Visual Studio Code Stable**, l'estensione **Python** e, solo su Windows, l'estensione **WSL**. Per ogni passaggio trovi la finestra da usare, i comandi, il risultato atteso e i riferimenti ufficiali. Ambienti virtuali e notebook vengono affrontati nella Lezione 1.
 
 ## Calendario autunnale 2026
 

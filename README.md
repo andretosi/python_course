@@ -42,7 +42,7 @@ Gli incontri si tengono al Politecnico di Milano, sede Milano Città Studi. Per 
   - [Python Course - Lezione 6 - Esercizi.md](md_lessons/Python%20Course%20-%20Lezione%206%20-%20Esercizi.md)
 - [lesson_code/](lesson_code/) – esempi testati, script di verifica e soluzioni eseguibili per le lezioni
 - [anni_precedenti/](anni_precedenti/) – materiali degli anni accademici passati
-  - [Guida di installazione originale (PDF, archivio)](anni_precedenti/2025-2026/old_lessons/Python%20Installation%20Guide.pdf)
+  - [Guida di installazione aggiornata (PDF, copia nel percorso storico)](anni_precedenti/2025-2026/old_lessons/Python%20Installation%20Guide.pdf)
 
 ## Contatti
 

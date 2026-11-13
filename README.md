@@ -20,3 +20,8 @@
 - [Guida di installazione (PDF)](md_lessons/Python%20Installation%20Guide.pdf)
 - [Lezione 1](md_lessons/Python%20Course%20-%20Lezione%201.md)
 - [Esercizi della Lezione 1](md_lessons/Python%20Course%20-%20Lezione%201%20-%20Esercizi.md)
+
+## Materiali della Lezione 2 - 11 novembre 2026
+
+- [Slide della Lezione 2 (PDF)](slides/Python%20-%20Lezione%202.pdf)
+- [Script dell’esercizio: la spesa per una merenda](lesson_code/lezione_2/spesa.py)

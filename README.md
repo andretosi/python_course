@@ -15,13 +15,11 @@
 | 7 | Mercoledì 9 dicembre 2026 | 17:30 - 19:30 |
 | 8 | Martedì 15 dicembre 2026 | 17:30 - 19:30 |
 
-## Materiali della Lezione 1 - 10 novembre 2026
+## Lezione 1
 
 - [Guida di installazione (PDF)](md_lessons/Python%20Installation%20Guide.pdf)
-- [Lezione 1](md_lessons/Python%20Course%20-%20Lezione%201.md)
-- [Esercizi della Lezione 1](md_lessons/Python%20Course%20-%20Lezione%201%20-%20Esercizi.md)
 
-## Materiali della Lezione 2 - 11 novembre 2026
+## Lezione 2
 
-- [Slide della Lezione 2 (PDF)](slides/Python%20-%20Lezione%202.pdf)
-- [Script dell’esercizio: la spesa per una merenda](lesson_code/lezione_2/spesa.py)
+- [Presentazione della lezione (PDF)](slides/Python%20-%20Lezione%202.pdf)
+- [Esercizio: la spesa per una merenda (file Python iniziale)](lesson_code/lezione_2/spesa.py)
